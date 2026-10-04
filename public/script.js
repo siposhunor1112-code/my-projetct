@@ -11,6 +11,17 @@ const SITE = {
   status: "Most is vállalok új munkát", // a nyitókép fölötti zöld pöttyös felirat; null = elrejti
 };
 
+// Impresszum (a magyar jogszabályok szerint kötelező) – töltse ki, és megjelenik a láblécben.
+// Amíg a "name" üres, az impresszum nem látszik.
+const LEGAL = {
+  name: "",            // pl. "Pixelka – Minta Péter egyéni vállalkozó" vagy a cég neve
+  address: "",         // székhely
+  taxNumber: "",       // adószám
+  registry: "",        // nyilvántartási szám / cégjegyzékszám
+  email: SITE.email,
+  host: "Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA – cloudflare.com",
+};
+
 // A csomagok tartalma a kalkulátor tételeiből (data-key) – az árak az index.html-ben, a data-price-ban
 const PRESETS = {
   alap: [],
@@ -44,6 +55,17 @@ document.documentElement.classList.add("js");
   $$("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
 })();
 
+// ---------- Impresszum ----------
+(() => {
+  if (!LEGAL.name) return;
+  const list = $("[data-legal-list]");
+  [["Szolgáltató", LEGAL.name], ["Székhely", LEGAL.address], ["Adószám", LEGAL.taxNumber],
+    ["Nyilvántartási szám", LEGAL.registry], ["E-mail", LEGAL.email], ["Tárhelyszolgáltató", LEGAL.host]]
+    .filter(([, v]) => v)
+    .forEach(([k, v]) => { const dt = document.createElement("dt"), dd = document.createElement("dd"); dt.textContent = k; dd.textContent = v; list.append(dt, dd); });
+  $("[data-legal]").hidden = false;
+})();
+
 // ---------- Fejléc és menü ----------
 (() => {
   const top = $(".top"), burger = $(".burger"), menu = $("#menu");
@@ -56,6 +78,7 @@ document.documentElement.classList.add("js");
     burger.setAttribute("aria-label", open ? "Menü bezárása" : "Menü");
     menu.hidden = !open;
     document.documentElement.style.overflow = open ? "hidden" : "";
+    if (open) $("a", menu).focus();
   };
   burger.addEventListener("click", () => setMenu(burger.getAttribute("aria-expanded") !== "true"));
   menu.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
@@ -111,8 +134,10 @@ WORKS.forEach((w) => w.el.style.setProperty("--accent", w.accent));
   // a bemutató az átadott munkával (Meggie Virágbolt) indul
   let i = Math.max(0, WORKS.findIndex((w) => w.id === "meggie")), anim = null, timer = 0, busy = false;
   root.style.setProperty("--glow", WORKS[i].accent);
-  const paused = { hover: false, off: false, hidden: false };
-  const isPaused = () => paused.hover || paused.off || paused.hidden;
+  // Adattakarékos módban (vagy ha a látogató megállítja) nem lapoz magától
+  const saveData = !!navigator.connection?.saveData;
+  const paused = { hover: false, off: false, hidden: false, user: saveData };
+  const isPaused = () => paused.hover || paused.off || paused.hidden || paused.user;
   $("[data-stage-total]").textContent = String(WORKS.length).padStart(2, "0");
 
   const queueNext = (ms = reduce ? 5200 : 1100) => {
@@ -172,9 +197,21 @@ WORKS.forEach((w) => w.el.style.setProperty("--accent", w.accent));
   $("[data-stage-next]").addEventListener("click", () => show(i + 1));
   $("[data-stage-prev]").addEventListener("click", () => show(i - 1));
 
-  // Koppintás / kattintás a készülékekre: megnyílik a teljes oldal
+  // Szünet gomb (a mozgó tartalom megállítható – akadálymentesség)
+  const pauseBtn = $("[data-stage-pause]");
+  const syncPause = () => {
+    pauseBtn.setAttribute("aria-pressed", paused.user);
+    pauseBtn.setAttribute("aria-label", paused.user ? "Bemutató indítása" : "Bemutató megállítása");
+  };
+  pauseBtn.addEventListener("click", () => { setPause("user", !paused.user); syncPause(); });
+  syncPause();
+
+  // Koppintás / kattintás a készülékekre (vagy Enter): megnyílik a teljes oldal
   devices.style.cursor = "pointer";
   devices.addEventListener("click", () => openViewer(i));
+  devices.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openViewer(i); }
+  });
 
   // Ujjal oldalra húzva lapoz
   let sx = 0, sy = 0;
@@ -285,7 +322,7 @@ function openViewer(n) {
 // ---------- Árkalkulátor ----------
 const calc = (() => {
   const inputs = $$(".calc input[data-key]");
-  const totalEl = $("[data-total]"), meter = $("[data-meter]"), days = $("[data-days]"), cap = $("[data-cap]");
+  const totalEl = $("[data-total]"), meter = $("[data-meter]"), cap = $("[data-cap]");
   let shown = BASE, raf = 0;
 
   const state = () => {
@@ -308,8 +345,6 @@ const calc = (() => {
     const { on, sum, total } = state();
     tween(total);
     meter.style.width = `${((total - BASE) / (CAP - BASE)) * 100}%`;
-    const keys = on.map((x) => x.dataset.key);
-    days.textContent = keys.includes("booking") ? "kb. 2–3 hét" : total >= 105000 ? "kb. 10–14 nap" : total > BASE ? "kb. 1–1,5 hét" : "kb. 1 hét";
     cap.hidden = sum <= CAP;
   };
   inputs.forEach((x) => x.addEventListener("change", update));
@@ -422,11 +457,3 @@ const calc = (() => {
   els.forEach((el) => io.observe(el));
 })();
 
-// ---------- Lábléc: mennyit töltött le az oldal ----------
-addEventListener("load", () => setTimeout(() => {
-  const all = [...performance.getEntriesByType("navigation"), ...performance.getEntriesByType("resource")];
-  const bytes = all.reduce((a, e) => a + (e.transferSize || e.encodedBodySize || 0), 0);
-  if (bytes > 0) {
-    $("[data-weight]").textContent = `Ez az oldal ${ft(Math.round(bytes / 1024))} KB-ot töltött be, követőkód és sütik nélkül.`;
-  }
-}, 1500));

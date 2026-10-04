@@ -4,15 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Pixelka – Egyedi weboldal kisvállalkozásoknak, 70 000 Ft-tól</title>
-  <meta name="description" content="Egyedi tervezésű, telefonra szabott weboldalak kisvállalkozásoknak. Fix ár 70 000 és 150 000 Ft között, 1–2 hét alatt, havidíj nélkül.">
+  <meta name="description" content="Egyedi tervezésű, telefonra szabott weboldalak kisvállalkozásoknak. Fix ár 70 000 és 150 000 Ft között, havidíj nélkül.">
   <meta name="theme-color" content="#0d0d0f">
-  <meta name="color-scheme" content="dark light">
+  <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://pixelka.hu/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="hu_HU">
   <meta property="og:title" content="Weboldal, ami ügyfelet hoz – Pixelka">
-  <meta property="og:description" content="Egyedi weboldal kisvállalkozásoknak. Fix ár 70–150 ezer Ft, 1–2 hét, nincs havidíj.">
+  <meta property="og:description" content="Egyedi weboldal kisvállalkozásoknak. Fix ár 70–150 ezer Ft, nincs havidíj.">
   <meta property="og:image" content="https://pixelka.hu/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Pixelka – Weboldal, ami ügyfelet hoz">
   <meta property="og:url" content="https://pixelka.hu/">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -20,7 +23,7 @@
   <link rel="preload" href="/assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/work/meggie-mobile.webp" as="image" type="image/webp">
-  <link rel="stylesheet" href="/styles.css?v=3">
+  <link rel="stylesheet" href="/styles.css?v=4">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -99,7 +102,7 @@
 
         <!-- Élő bemutató: a munkák telefonon és számítógépen -->
         <div class="stage" aria-label="Munkák bemutatója" role="region">
-          <div class="stage__devices">
+          <div class="stage__devices" role="button" tabindex="0" aria-label="A bemutatott oldal megnyitása teljes méretben">
             <div class="browser stage__browser" aria-hidden="true">
               <div class="browser__bar"><i></i><i></i><i></i><span class="browser__url" data-stage-url>meggie-viragbolt</span></div>
               <div class="browser__screen"><img data-stage-desk src="/assets/work/meggie-hero.webp" width="1200" height="750" alt=""></div>
@@ -110,12 +113,13 @@
             </div>
           </div>
           <div class="stage__caption">
-            <div class="stage__info" aria-live="polite">
+            <div class="stage__info">
               <span class="stage__count"><span class="stage__kind" data-stage-kind>Átadott munka</span> <span data-stage-n>01</span> / <span data-stage-total>10</span></span>
               <strong class="stage__name" data-stage-name>Meggie Virágbolt</strong>
               <span class="stage__sig" data-stage-sig>Virágbolt a Blaha Lujza téren</span>
             </div>
             <div class="stage__ctrl">
+              <button type="button" class="round" data-stage-pause aria-label="Bemutató megállítása" aria-pressed="false"><svg class="ic-pause" aria-hidden="true"><use href="#pause"/></svg><svg class="ic-play" aria-hidden="true"><use href="#play"/></svg></button>
               <button type="button" class="round" data-stage-prev aria-label="Előző"><svg aria-hidden="true"><use href="#arrow"/></svg></button>
               <button type="button" class="round" data-stage-next aria-label="Következő"><svg aria-hidden="true"><use href="#arrow"/></svg></button>
             </div>
@@ -126,9 +130,8 @@
       <div class="wrap">
         <dl class="facts">
           <div><dt>Fix ár</dt><dd>70–150<small>e Ft</small></dd></div>
-          <div><dt>Első változat</dt><dd>3–5<small>nap</small></dd></div>
-          <div><dt>Átadás</dt><dd>7–14<small>nap</small></dd></div>
           <div><dt>Havidíj</dt><dd>0<small>Ft</small></dd></div>
+          <div><dt>Első változat</dt><dd>Ingyen</dd></div>
         </dl>
       </div>
     </section>
@@ -174,7 +177,7 @@
 
         <div class="versus" role="table" aria-label="Összehasonlítás">
           <div class="versus__row versus__row--head" role="row">
-            <span role="columnheader"></span>
+            <span role="columnheader"><span class="sr">Szempont</span></span>
             <span role="columnheader">Weboldal-építő</span>
             <span role="columnheader">Ügynökség</span>
             <span role="columnheader" class="versus__me">Velem</span>
@@ -397,16 +400,12 @@
           <p class="lead">Ezek nem extrák, hanem alapok – minden csomag tartalmazza őket.</p>
         </div>
         <ul class="incl__list">
-          <li><svg aria-hidden="true"><use href="#i-phone"/></svg><h3>Telefonra optimalizálva</h3><p>Minden képernyőméreten jól használható, kényelmes gombokkal.</p></li>
           <li><svg aria-hidden="true"><use href="#i-pin"/></svg><h3>Hívás és útvonal</h3><p>Egy érintéssel – Google Térkép, Apple Térkép vagy Waze.</p></li>
           <li><svg aria-hidden="true"><use href="#i-clock"/></svg><h3>Élő nyitvatartás</h3><p>Az oldal mutatja, hogy éppen nyitva van-e, és meddig.</p></li>
           <li><svg aria-hidden="true"><use href="#i-pen"/></svg><h3>Szövegírás</h3><p>A szövegeket én írom meg, Önnek csak jóvá kell hagynia.</p></li>
           <li><svg aria-hidden="true"><use href="#i-search"/></svg><h3>Keresőbarát</h3><p>Felépítés és adatok úgy, hogy a Google könnyen megtalálja.</p></li>
-          <li><svg aria-hidden="true"><use href="#i-share"/></svg><h3>Megosztási kép</h3><p>Igényes előnézet, ha valaki elküldi vagy megosztja az oldalt.</p></li>
           <li><svg aria-hidden="true"><use href="#i-shield"/></svg><h3>Nincs sütisáv</h3><p>Nincs követőkód, ezért süti-figyelmeztetésre sincs szükség.</p></li>
           <li><svg aria-hidden="true"><use href="#i-lock"/></svg><h3>Biztonság</h3><p>Titkosított kapcsolat (HTTPS) és biztonsági beállítások.</p></li>
-          <li><svg aria-hidden="true"><use href="#i-bolt"/></svg><h3>Gyors betöltés</h3><p>Optimalizált képek és betűtípusok, felesleges kód nélkül.</p></li>
-          <li><svg aria-hidden="true"><use href="#i-hand"/></svg><h3>Akadálymentes</h3><p>Billentyűzettel is kezelhető, jól olvasható kontrasztokkal.</p></li>
           <li><svg aria-hidden="true"><use href="#i-cloud"/></svg><h3>Nincs tárhelydíj</h3><p>Megbízható, ingyenes tárhelyen fut, havi költség nélkül.</p></li>
           <li><svg aria-hidden="true"><use href="#i-key"/></svg><h3>Az oldal az Öné</h3><p>A domain az Ön nevére szól, és megkapja a teljes oldalt.</p></li>
         </ul>
@@ -419,7 +418,7 @@
         <div class="pricing__head">
           <p class="eyebrow"><span class="num">(03)</span> Árak</p>
           <h2 class="h2" id="price-title">Fix ár, <em>előre.</em></h2>
-          <p class="lead">Az árat az első egyeztetés után rögzítjük, és az később nem változik. Havidíj nincs.</p>
+          <p class="lead">Az árat az első egyeztetés után rögzítjük, és az később nem változik.</p>
         </div>
 
         <div class="plans">
@@ -428,7 +427,6 @@
               <h3 class="plan__name">Alap</h3>
               <p class="plan__for">Igényes bemutatkozó oldal, minden fontos információval.</p>
               <p class="plan__price"><span>70 000</span> Ft</p>
-              <p class="plan__time">kb. 1 hét</p>
             </header>
             <ul class="plan__list">
               <li>Egyoldalas, egyedi tervezésű weboldal</li>
@@ -436,8 +434,7 @@
               <li>Elérhetőség, térkép, hívás és útvonal</li>
               <li>Élő nyitvatartás</li>
               <li>Szövegírás</li>
-              <li>Keresőbarát felépítés, megosztási kép</li>
-              <li>1 módosítási kör</li>
+              <li>Keresőbarát felépítés</li>
             </ul>
             <button type="button" class="btn btn--line plan__btn" data-preset="alap">Ezt választom</button>
           </article>
@@ -448,7 +445,6 @@
               <h3 class="plan__name">Kirakat</h3>
               <p class="plan__for">Bővebb oldal árlistával, időpontkéréssel és egyedi nyitóképpel.</p>
               <p class="plan__price"><span>110 000</span> Ft</p>
-              <p class="plan__time">kb. 10–14 nap</p>
             </header>
             <ul class="plan__list">
               <li><strong>Az Alap csomag tartalma</strong></li>
@@ -456,7 +452,6 @@
               <li>Árlista, étlap vagy kollekció</li>
               <li>Időpont- vagy ajánlatkérés</li>
               <li>Vélemények és gyakori kérdések</li>
-              <li>2 módosítási kör</li>
             </ul>
             <button type="button" class="btn btn--lime plan__btn" data-preset="kirakat">Ezt választom</button>
           </article>
@@ -466,20 +461,18 @@
               <h3 class="plan__name">Prémium</h3>
               <p class="plan__for">Online időpontfoglalással és saját kezelőfelülettel.</p>
               <p class="plan__price"><span>150 000</span> Ft</p>
-              <p class="plan__time">kb. 2–3 hét</p>
             </header>
             <ul class="plan__list">
               <li><strong>A Kirakat csomag tartalma</strong></li>
               <li>Online időpontfoglalás élő naptárral</li>
               <li>Kezelőfelület a foglalásokhoz és szabadnapokhoz</li>
-              <li>Lemondás egy linkkel, adatkezelési tájékoztató</li>
-              <li>3 módosítási kör</li>
+              <li>A vendég egy kattintással lemondhatja a foglalását</li>
             </ul>
             <button type="button" class="btn btn--line plan__btn" data-preset="premium">Ezt választom</button>
           </article>
         </div>
 
-        <p class="pricing__note"><strong>Rendszeres költség:</strong> csak a domain (pl. <em>vallalkozasom.hu</em>), kb. évi 3–6 ezer Ft. Tárhelydíj nincs.</p>
+        <p class="pricing__note"><strong>Rendszeres költség:</strong> csak a domain (pl. <em>vallalkozasom.hu</em>), kb. évi 3–6 ezer Ft.</p>
 
         <!-- Árkalkulátor: a tételek ára a data-price-ban, a csomagok a script.js PRESETS részében -->
         <div class="calc" id="kalkulator" aria-labelledby="calc-title">
@@ -504,7 +497,6 @@
               <p class="total__label">Végösszeg</p>
               <p class="total__sum"><span data-total>70 000</span> <small>Ft</small></p>
               <div class="meter" aria-hidden="true"><span class="meter__fill" data-meter></span><span class="meter__a">70e</span><span class="meter__b">150e</span></div>
-              <p class="total__days">Elkészül: <strong data-days>kb. 1 hét</strong></p>
               <p class="total__cap" data-cap hidden>Elérte a felső határt: ezekért a tételekért <strong>legfeljebb 150&nbsp;000&nbsp;Ft</strong> a díj.</p>
               <button type="button" class="btn btn--lime total__btn" data-calc-send>Ajánlatot kérek erre <svg aria-hidden="true"><use href="#arrow"/></svg></button>
               <p class="total__small">Webshophoz vagy egyedi rendszerhez külön ajánlatot adok.</p>
@@ -526,25 +518,21 @@
             <span class="step__n">01</span>
             <h3>Egyeztetés</h3>
             <p>Rövid beszélgetés telefonon vagy személyesen a vállalkozásáról és az elképzeléseiről. Díjmentes, és nem kötelez semmire.</p>
-            <span class="step__t">1. nap</span>
           </li>
           <li class="step">
             <span class="step__n">02</span>
             <h3>Első változat</h3>
-            <p>Néhány napon belül küldök egy linket, amelyen a saját telefonján is megnézheti az oldalt.</p>
-            <span class="step__t">3–5. nap</span>
+            <p>Elkészítem az oldal első változatát, amelyet egy linken a saját telefonján is megnézhet.</p>
           </li>
           <li class="step">
             <span class="step__n">03</span>
             <h3>Véglegesítés</h3>
             <p>Az Ön visszajelzései alapján véglegesítjük a szövegeket, a színeket és az árakat.</p>
-            <span class="step__t">1–2. hét</span>
           </li>
           <li class="step">
             <span class="step__n">04</span>
             <h3>Átadás</h3>
-            <p>Az oldalt a saját domainjén élesítem, összekötöm a Google Cégprofiljával, és rövid útmutatót adok hozzá.</p>
-            <span class="step__t">Átadás</span>
+            <p>Az oldalt közzéteszem a saját domainjén, összekötöm a Google Cégprofiljával, és rövid útmutatót adok hozzá.</p>
           </li>
         </ol>
         <div class="promise">
@@ -565,15 +553,11 @@
         <div class="faq__list">
           <details>
             <summary>Valóban nincs havidíj?</summary>
-            <p>Tárhelydíj nincs, az oldal ingyenes, megbízható tárhelyen (Cloudflare) fut. Az egyetlen rendszeres költség a domain (pl. <em>vallalkozasom.hu</em>), ez évente kb. 3–6 ezer forint, és az Ön nevére szól.</p>
+            <p>Tárhelydíj nincs, az oldal ingyenes, megbízható tárhelyen fut. Az egyetlen rendszeres költség a domain (pl. <em>vallalkozasom.hu</em>), ez évente kb. 3–6 ezer forint, és az Ön nevére szól.</p>
           </details>
           <details>
             <summary>Mire van szükség Öntől?</summary>
             <p>Logóra (ha van), néhány fotóra, az árakra és a nyitvatartásra. A szövegeket én írom meg. Ha nincs megfelelő fotó, rajzolt illusztrációkkal is szép oldal készülhet – erre a Meggie Virágbolt oldala a példa.</p>
-          </details>
-          <details>
-            <summary>Mennyi idő alatt készül el?</summary>
-            <p>Az Alap csomag kb. egy hét, a Kirakat 10–14 nap, a Prémium 2–3 hét. Az első változatot általában 3–5 napon belül látja.</p>
           </details>
           <details>
             <summary>Kié lesz a weboldal?</summary>
@@ -581,7 +565,7 @@
           </details>
           <details>
             <summary>Lehet később módosítani?</summary>
-            <p>Igen. Az átadást követő 30 napban a kisebb módosításokat (árak, nyitvatartás, szövegek) díjmentesen elvégzem. Később is szívesen segítek, előre egyeztetett áron.</p>
+            <p>Igen. Ha változik az ár, a nyitvatartás vagy egy szöveg, szóljon, és átírom.</p>
           </details>
           <details>
             <summary>Hogyan történik a fizetés?</summary>
@@ -680,17 +664,22 @@
       <p class="foot__giant" aria-hidden="true">Pixelka</p>
       <div class="foot__row foot__small">
         <p>© <span data-year>2026</span> Pixelka · Webkészítés, Budapest</p>
-        <p data-weight>Ez az oldal is kézzel készült – követőkód és süti nélkül.</p>
+        <p>Követőkódok és sütik nélkül.</p>
       </div>
+      <!-- Impresszum: a script.js LEGAL részéből töltődik ki; amíg nincs kitöltve, nem jelenik meg -->
+      <details class="legal" data-legal hidden>
+        <summary>Impresszum</summary>
+        <dl class="legal__list" data-legal-list></dl>
+      </details>
     </div>
   </footer>
 
   <!-- Telefonon alul: mindig kéznél az ajánlatkérés -->
-  <div class="dock" data-dock>
+  <nav class="dock" data-dock aria-label="Gyors elérés">
     <a class="dock__btn" href="#munkak">Munkák</a>
     <a class="dock__btn dock__btn--call" href="#" data-phone-dock hidden>Hívás</a>
     <a class="dock__btn dock__btn--lime" href="#kapcsolat">Ajánlatot kérek</a>
-  </div>
+  </nav>
 
   <!-- Munka-nézegető -->
   <dialog class="viewer" data-viewer aria-labelledby="viewer-title">
@@ -709,10 +698,10 @@
       <div class="viewer__body" data-v-body data-view="phone">
         <div class="browser viewer__desk">
           <div class="browser__bar"><i></i><i></i><i></i><span class="browser__url" data-v-url></span></div>
-          <div class="browser__scroll" tabindex="0" aria-label="Az oldal számítógépen – görgethető"><img data-v-desk alt="" width="960" height="4800"></div>
+          <div class="browser__scroll" role="region" tabindex="0" aria-label="Az oldal számítógépen – görgethető"><img data-v-desk alt="" width="960" height="4800"></div>
         </div>
         <div class="phone viewer__phone">
-          <div class="phone__screen phone__screen--scroll" tabindex="0" aria-label="Az oldal telefonon – görgethető"><img data-v-phone alt="" width="600" height="5193"></div>
+          <div class="phone__screen phone__screen--scroll" role="region" tabindex="0" aria-label="Az oldal telefonon – görgethető"><img data-v-phone alt="" width="600" height="5193"></div>
           <span class="phone__notch" aria-hidden="true"></span>
         </div>
         <aside class="viewer__info">
@@ -733,6 +722,8 @@
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="mark" viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#cfff45"/><rect x="10" y="10" width="8.5" height="8.5" rx="1.6" fill="#0d0d0f"/><rect x="19.5" y="10" width="8.5" height="8.5" rx="1.6" fill="#0d0d0f"/><rect x="10" y="19.5" width="8.5" height="8.5" rx="1.6" fill="#0d0d0f"/><rect x="22" y="22" width="8.5" height="8.5" rx="1.6" fill="#0d0d0f"/></symbol>
     <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <symbol id="play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
     <symbol id="close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></g></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 21.5s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
@@ -748,6 +739,6 @@
     <symbol id="i-key" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="15" r="4.5"/><path d="M11.2 11.8L20 3M16.5 6.5l2.5 2.5M14 9l2 2"/></g></symbol>
   </svg>
 
-  <script src="/script.js?v=3" defer></script>
+  <script src="/script.js?v=4" defer></script>
 </body>
 </html>

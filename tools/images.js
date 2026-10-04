@@ -45,7 +45,7 @@ ${phone("meggie-mobile.webp", 880, 70, 0)}
 <div class="wrap">
   <div class="top">${mark("#cfff45", "#0d0d0f")}Pixelka</div>
   <h1>Weboldal, ami <em>ügyfelet hoz.</em></h1>
-  <div class="bottom"><span>70–150 ezer Ft</span><span>1–2 hét</span><span>0 Ft havidíj</span></div>
+  <div class="bottom"><span>70–150 ezer Ft</span><span>0 Ft havidíj</span><span>Első változat ingyen</span></div>
 </div>`;
 
 const icon = `<style>${base} body { background: #cfff45; display: grid; place-items: center; } svg { width: 100%; height: 100%; }</style>
