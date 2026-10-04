@@ -25,7 +25,7 @@ const mark = (bg, fg) => `<svg viewBox="0 0 40 40"><rect width="40" height="40" 
 
 const phone = (img, x, y, r) => `<div class="ph" style="left:${x}px;top:${y}px;transform:rotate(${r}deg)"><div><img src="${shot(img)}"></div></div>`;
 const og = `<style>${base}
-  .glow { position: absolute; right: -200px; top: -200px; width: 900px; height: 900px; background: radial-gradient(closest-side, rgba(227,164,108,.35), transparent 70%); }
+  .glow { position: absolute; right: -200px; top: -200px; width: 900px; height: 900px; background: radial-gradient(closest-side, rgba(210,68,111,.32), transparent 70%); }
   .wrap { position: absolute; left: 72px; top: 64px; bottom: 60px; width: 640px; display: flex; flex-direction: column; }
   .top { display: flex; align-items: center; gap: 16px; font-weight: 700; font-size: 30px; font-stretch: 108%; letter-spacing: -.02em; }
   .top svg { width: 52px; height: 52px; }
@@ -39,9 +39,9 @@ const og = `<style>${base}
   .ph img { width: 100%; display: block; }
 </style>
 <div class="glow"></div>
-${phone("zenith-mobile.webp", 760, 120, -6)}
-${phone("lutri-mobile.webp", 1010, 230, 5)}
-${phone("molly-mobile.webp", 880, 70, 0)}
+${phone("margareta-mobile.webp", 760, 120, -6)}
+${phone("molly-mobile.webp", 1010, 230, 5)}
+${phone("meggie-mobile.webp", 880, 70, 0)}
 <div class="wrap">
   <div class="top">${mark("#cfff45", "#0d0d0f")}Sipos Hunor</div>
   <h1>Weboldal, ami <em>ügyfelet hoz.</em></h1>

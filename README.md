@@ -10,13 +10,14 @@ ugyanúgy, mint az ügyféloldalak.
    ha megadod, megjelenik a Kapcsolatnál és telefonon az alsó sávban is (Hívás gomb).
 2. **Domain** – az oldal a `https://siposhunor.hu/` címet feltételezi. Ha más lesz, írd át itt:
    `public/index.html` (`og:image`, `og:url`, `canonical`, `application/ld+json`), `public/robots.txt`, `public/sitemap.xml`.
-3. **Élő linkek a munkákhoz** – minden munka egy `<article class="card">` az `index.html`-ben. A `data-url=""`-be írd az
-   élő oldal címét (pl. `data-url="https://zendet.hu"`), és a nézegetőben megjelenik a „Megnyitom élőben” gomb, a böngészőablak
-   tetején pedig a valódi cím.
-4. **Ügyfelek engedélye** – csak olyan munkát mutass, amihez a vállalkozás hozzájárult. Amelyiket nem, azt az `<article>`
-   törlésével veszed ki (a szűrő-gombok számát – `<sup>2</sup>` – és a „10 elkészült weboldal” számot is igazítsd hozzá).
+3. **A Meggie Virágbolt élő címe** – az `index.html`-ben a kiemelt munkánál (`<article class="card feature" data-id="meggie" …>`)
+   írd a `data-url=""`-be az élő oldal címét. Ekkor megjelenik az „Élő oldal” gomb, a böngészőablak tetején pedig a valódi cím.
+4. **Mintaoldalak** – a másik kilenc oldal „Mintaoldal” címkét kapott, és a szekció kiírja, hogy saját kezdeményezésre, nyilvános
+   adatok alapján készültek, nem megrendelésre. Valódi vállalkozások nevét viselik: ha valamelyik vállalkozás kéri, vedd ki
+   (az `<article>` törlésével; a szűrő-gombok számát – `<sup>2</sup>` – is igazítsd hozzá). Ha később megrendelés lesz belőle,
+   írd át a `data-kind`-ot „Átadott munka”-ra, és tedd át a kiemelt részbe.
 5. **Üzleti feltételek** – ezeket én javasoltam, döntsd el, vállalod-e (mind az `index.html`-ben):
-   - „Előbb megmutatom, aztán fizet. Ha az első változat nem tetszik, nem tartozik semmivel.” (Folyamat szekció)
+   - „Kockázatmentes kezdés: az első változatot díjmentesen elkészítem. Ha nem tetszik, nem tartozik semmivel.” (Folyamat)
    - Fizetés: 50% a munka elején, 50% élesítéskor (GYIK)
    - Átadás után 30 napig ingyenes kisebb javítások (GYIK)
    - „24 órán belül válaszolok” (Kapcsolat)
@@ -50,7 +51,7 @@ ugyanúgy, mint az ügyféloldalak.
   (a kiemelt szavak, pl. „*ügyfelet hoz.*”), **Geist** (szöveg) és **Geist Mono** (címkék, számok).
   Az Archivo le van karcsúsítva (csak a használt vastagságok és a magyar ékezetek): 176 KB helyett 50 KB
 - Logó: lime négyzet, benne egy parancssor-jel `>_` – „aki kódot ír”
-- Megszólítás: magázó, közvetlen, szakszavak nélkül – a célközönség (szalonok, szervizek, boltok tulajdonosai) nyelvén
+- Megszólítás: magázó, egyszerű és szakmai hangnem, szakszavak nélkül
 
 ## Szekciók – és miért ezek
 
@@ -58,19 +59,21 @@ Az oldal egyetlen kérdésre felel minél gyorsabban: *„Megéri-e nekem, hogy 
 
 - **Nyitókép** – az első képernyőn ott van minden lényeg: mit csinálsz (weboldal, ami ügyfelet hoz), mennyiért (70 000 Ft-tól,
   fix ár), mennyi idő alatt (7–14 nap), mi a csapda máshol (havidíj – nálad 0 Ft). Mellette **élő bemutató**: a saját munkáid
-  egy telefonban és egy böngészőablakban, a telefonban az oldal magától legörget, a háttér fénye felveszi az adott oldal színét,
+  egy telefonban és egy böngészőablakban (a Meggie Virágbolttal indul, mindegyiknél ott a címke: „Átadott munka” vagy
+  „Mintaoldal”), a telefonban az oldal magától legörget, a háttér fénye felveszi az adott oldal színét,
   aztán jön a következő. Ujjal lapozható, egérrel megdől, rákattintva megnyílik a teljes oldal. Nem állítás, hanem bizonyíték.
-- **Szalag** – a tíz vállalkozás neve úszik: társadalmi bizonyíték, egy pillantás alatt
-- **(00) Miért számít** – a probléma (a vevő telefonról, 3 másodperc alatt dönt) és a négy ígéret. Alatta **összehasonlítás**:
+- **Szalag** – a szolgáltatás fő jellemzői úsznak (egyedi tervezés, fix ár, nincs havidíj…)
+- **(00) Szemlélet** – a vevő telefonról, néhány másodperc alatt dönt, és négy alapelv. Alatta **összehasonlítás**:
   sablonos weboldal-építő vs. ügynökség vs. te – a valódi alternatívák, amiken a vevő gondolkodik. Telefonon kártyákká alakul
-- **(01) Munkák** – a tíz oldal szakmák szerint szűrhetően. Egérrel fölé állva a kártyán végiggörget a teljes oldal;
-  kattintásra a **nézegető** mutatja telefonon és számítógépen is, görgethetően (telefonon lapokkal vált)
+- **(01) Munkák** – elöl, kiemelve az **átadott munka** (Meggie Virágbolt): nagy kép, leírás, mit tartalmaz. Alatta a
+  **mintaoldalak** szakmák szerint szűrhetően, egyértelmű „Mintaoldal” címkével. Egérrel fölé állva a kártyán végiggörget a
+  teljes oldal; kattintásra a **nézegető** mutatja telefonon és számítógépen is (telefonon lapokkal vált)
 - **(02) Mit kap** – 12 dolog, ami minden oldalban benne van (élő nyitvatartás, hívás/útvonal, szövegírás, nincs sütisáv…).
   Ezek az ügyféloldalaid valódi tudása – a READMEékből gyűjtöttem össze
 - **(03) Árak** – három csomag (Alap 70e, **Kirakat 110e – legnépszerűbb**, Prémium 150e). A középső kiemelése a döntést
   könnyíti. Alatta **árkalkulátor**: a tételek kipipálásával élőben számolja a végösszeget és az átfutást, 150 000 Ft-nál megáll
   („ennél többet nem kérek”). A „Ezt kérem” / „Ezzel kérek ajánlatot” gomb kitölti az ajánlatkérőt
-- **(04) Folyamat** – négy lépés napokkal, és a kockázatmentes ígéret („Előbb megmutatom, aztán fizet”)
+- **(04) Folyamat** – négy lépés napokkal, és a kockázatmentes kezdés („az első változat díjmentes”)
 - **(05) Kérdések** – a kilenc leggyakoribb ellenvetés megválaszolva (havidíj, mi kell tőlem, kié az oldal, Google, webshop…)
 - **(06) Kapcsolat** – ajánlatkérő, ami a látogató **saját levelezőjében** nyit meg egy előre megírt levelet (vállalkozás neve,
   szakma, csomag vagy a kalkulátor összeállítása, meglévő oldal, üzenet). Van „Szöveg másolása” gomb is (Messengerre).

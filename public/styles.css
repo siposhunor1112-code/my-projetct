@@ -712,3 +712,49 @@ em { font-style: normal; }
 }
 .notfound .h2 em { color: var(--lime); }
 .notfound__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+
+/* ---------- Átadott munka (kiemelt) és mintaoldalak ---------- */
+.stage__kind {
+  display: inline-block; margin-right: 8px; padding: 4px 8px; border-radius: 5px;
+  background: var(--lime); color: var(--ink); letter-spacing: .06em; text-transform: uppercase; font-size: 10.5px;
+}
+.stage__kind.is-demo { background: var(--ink-3); color: var(--mute-d); }
+
+.kind {
+  display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; padding: 7px 12px; border-radius: 999px;
+  font: 500 11.5px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase;
+}
+.kind--client { background: var(--lime); color: var(--ink); }
+.kind--client::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ink); }
+
+.feature {
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center;
+  padding: clamp(16px, 2vw, 24px); border-radius: 28px; background: var(--ink-2); box-shadow: 0 0 0 1px var(--line-d);
+  margin-bottom: clamp(72px, 10vw, 120px);
+}
+.feature .card__shot { aspect-ratio: 16 / 10; }
+.feature__body { padding: 8px clamp(4px, 2vw, 24px) 8px 0; }
+.feature .card__name { font-size: clamp(30px, 3.4vw, 46px); margin-top: 10px; }
+.feature .card__desc { font-size: 16.5px; }
+.feature__list { display: grid; gap: 9px; margin: 22px 0 28px; }
+.feature__list li { position: relative; padding-left: 26px; font-size: 15px; color: var(--bone); }
+.feature__list li::before {
+  content: ""; position: absolute; left: 0; top: 4px; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--ink-3) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%23cfff45' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat;
+}
+.feature__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.demos__head { display: grid; grid-template-columns: auto 1fr; gap: 12px 48px; align-items: end; margin-bottom: 28px; padding-top: 32px; border-top: 1px solid var(--line-d); }
+.demos__note { color: var(--mute-d); font-size: 15px; max-width: 46em; justify-self: end; text-align: right; }
+.calc__intro { color: var(--mute); margin: -14px 0 22px; font-size: 15.5px; }
+
+@media (max-width: 960px) {
+  .feature { grid-template-columns: 1fr; }
+  .feature__body { padding: 4px 6px 10px; }
+  .demos__head { grid-template-columns: 1fr; }
+  .demos__note { justify-self: start; text-align: left; }
+}
+@media (max-width: 640px) {
+  .feature { padding: 10px; border-radius: 22px; }
+  .feature__actions .btn { flex: 1 1 100%; }
+}

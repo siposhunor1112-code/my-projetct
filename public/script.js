@@ -91,6 +91,7 @@ const WORKS = $$(".card").map((el) => ({
   sig: el.dataset.sig,
   accent: el.dataset.accent,
   url: el.dataset.url || "",
+  kind: el.dataset.kind || "",
   meta: $(".card__meta", el).textContent,
   desc: $(".card__desc", el).textContent,
   tags: $$(".tags li", el).map((li) => li.textContent),
@@ -107,8 +108,8 @@ WORKS.forEach((w) => w.el.style.setProperty("--accent", w.accent));
   const phoneImg = $("[data-stage-phone]"), deskImg = $("[data-stage-desk]");
   const screen = phoneImg.parentElement;
   const root = document.documentElement;
-  // a nyitókép a Molly & Sharonnal indul (világos, jól mutat a sötét háttéren)
-  let i = Math.max(0, WORKS.findIndex((w) => w.id === "molly")), anim = null, timer = 0, busy = false;
+  // a bemutató az átadott munkával (Meggie Virágbolt) indul
+  let i = Math.max(0, WORKS.findIndex((w) => w.id === "meggie")), anim = null, timer = 0, busy = false;
   root.style.setProperty("--glow", WORKS[i].accent);
   const paused = { hover: false, off: false, hidden: false };
   const isPaused = () => paused.hover || paused.off || paused.hidden;
@@ -157,6 +158,8 @@ WORKS.forEach((w) => w.el.style.setProperty("--accent", w.accent));
     $("[data-stage-url]").textContent = w.url ? w.url.replace(/^https?:\/\//, "").replace(/\/$/, "") : w.host;
     $("[data-stage-n]").textContent = String(i + 1).padStart(2, "0");
     $("[data-stage-name]").textContent = w.name;
+    $("[data-stage-kind]").textContent = w.kind;
+    $("[data-stage-kind]").classList.toggle("is-demo", w.kind !== "Átadott munka");
     $("[data-stage-sig]").textContent = w.sig;
     stage.classList.remove("is-swapping");
     busy = false;
@@ -215,12 +218,15 @@ WORKS.forEach((w) => w.el.style.setProperty("--accent", w.accent));
   chips.forEach((c) => c.addEventListener("click", () => {
     const f = c.dataset.filter;
     chips.forEach((x) => { const on = x === c; x.classList.toggle("is-on", on); x.setAttribute("aria-pressed", on); });
-    WORKS.forEach((w) => (w.el.hidden = f !== "all" && w.el.dataset.cat !== f));
+    $$(".grid .card").forEach((el) => (el.hidden = f !== "all" && el.dataset.cat !== f));
   }));
 
   WORKS.forEach((w, n) => {
     const btn = $(".card__shot", w.el), pic = $("img", btn);
     btn.addEventListener("click", () => openViewer(n));
+    $("[data-open]", w.el)?.addEventListener("click", () => openViewer(n));
+    const live = $("[data-live]", w.el);
+    if (live && w.url) { live.href = w.url; live.hidden = false; }
     // Egér fölötte: betöltjük a teljes oldal képét, és lassan végiggörget rajta
     if (finePointer) btn.addEventListener("pointerenter", async () => {
       if (pic.classList.contains("is-long")) return;
@@ -237,7 +243,7 @@ let vIndex = 0;
 function openViewer(n) {
   vIndex = (n + WORKS.length) % WORKS.length;
   const w = WORKS[vIndex];
-  $("[data-v-meta]").textContent = w.meta;
+  $("[data-v-meta]").textContent = w.meta.includes(w.kind) ? w.meta : `${w.kind} · ${w.meta}`;
   $("[data-v-title]").textContent = w.name;
   $("[data-v-desc]").textContent = w.desc;
   $("[data-v-url]").textContent = w.url ? w.url.replace(/^https?:\/\//, "").replace(/\/$/, "") : w.host;
@@ -371,13 +377,13 @@ const calc = (() => {
   const compose = () => {
     const f = Object.fromEntries(new FormData(form));
     const name = (f.name || "").trim();
-    const lines = ["Kedves Hunor!", "", "Weboldalt szeretnék, kérek egy ajánlatot.", ""];
+    const lines = ["Kedves Hunor!", "", "Weboldal készítésére szeretnék ajánlatot kérni.", ""];
     if (name) lines.push(`Vállalkozás: ${name}`);
     if (f.type) lines.push(`Szakma: ${f.type}`);
     if (plan.value === "egyedi" && custom) {
       lines.push(`Csomag: egyedi összeállítás – ${ft(custom.total)} Ft`);
       custom.items.forEach((t) => lines.push(`  • ${t}`));
-    } else lines.push(`Csomag: ${PLAN_NAMES[plan.value] || "még nem tudom, segítsen választani"}`);
+    } else lines.push(`Csomag: ${PLAN_NAMES[plan.value] || "még nem döntöttem el"}`);
     if ((f.link || "").trim()) lines.push(`Meglévő oldal: ${f.link.trim()}`);
     if ((f.msg || "").trim()) lines.push("", f.msg.trim());
     lines.push("", "Üdvözlettel:", "");
@@ -395,7 +401,7 @@ const calc = (() => {
     const text = `Címzett: ${SITE.email}\nTárgy: ${subject}\n\n${body}`;
     try {
       await navigator.clipboard.writeText(text);
-      copied.textContent = "Kimásolva – illessze be egy e-mailbe vagy Messengerbe.";
+      copied.textContent = "Szöveg kimásolva.";
     } catch {
       copied.textContent = `Írjon ide: ${SITE.email}`;
     }
@@ -405,8 +411,8 @@ const calc = (() => {
 
 // ---------- Megjelenés görgetésre (csak nagy képernyőn, a CSS dönti el) ----------
 (() => {
-  const groups = [".pillars li", ".grid .card", ".incl__list li", ".plan", ".step", ".faq__list details"];
-  const singles = $$(".section .eyebrow, .section .h2, .section .lead, .versus, .filters, .calc, .promise, .composer, .direct");
+  const groups = [".pillars li", ".grid .card", ".feature", ".incl__list li", ".plan", ".step", ".faq__list details"];
+  const singles = $$(".section .eyebrow, .section .h2, .section .lead, .versus, .filters, .demos__head, .calc, .promise, .composer, .direct");
   const els = [...singles];
   groups.forEach((g) => $$(g).forEach((el, n) => { el.style.setProperty("--d", `${(n % 4) * 0.07}s`); els.push(el); }));
   els.forEach((el) => el.classList.add("rv"));
@@ -421,6 +427,6 @@ addEventListener("load", () => setTimeout(() => {
   const all = [...performance.getEntriesByType("navigation"), ...performance.getEntriesByType("resource")];
   const bytes = all.reduce((a, e) => a + (e.transferSize || e.encodedBodySize || 0), 0);
   if (bytes > 0) {
-    $("[data-weight]").textContent = `Ez az oldal is kézzel készült: eddig ${ft(Math.round(bytes / 1024))} KB-ot töltött le, követőkód és süti nélkül.`;
+    $("[data-weight]").textContent = `Ez az oldal ${ft(Math.round(bytes / 1024))} KB-ot töltött be, követőkód és sütik nélkül.`;
   }
 }, 1500));
