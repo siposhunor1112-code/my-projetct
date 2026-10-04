@@ -21,7 +21,7 @@ const base = `
   html, body { width: 100%; height: 100%; }
   body { background: #0d0d0f; color: #f2efe7; overflow: hidden; position: relative; font-family: Display; }
 `;
-const mark = (bg, fg) => `<svg viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="${bg}"/><path d="M11 25.5l6-6-6-6" fill="none" stroke="${fg}" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 27h9" stroke="${fg}" stroke-width="3.4" stroke-linecap="round"/></svg>`;
+const mark = (bg, fg) => `<svg viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="${bg}"/><rect x="10" y="10" width="8.5" height="8.5" rx="1.6" fill="${fg}"/><rect x="19.5" y="10" width="8.5" height="8.5" rx="1.6" fill="${fg}"/><rect x="10" y="19.5" width="8.5" height="8.5" rx="1.6" fill="${fg}"/><rect x="22" y="22" width="8.5" height="8.5" rx="1.6" fill="${fg}"/></svg>`;
 
 const phone = (img, x, y, r) => `<div class="ph" style="left:${x}px;top:${y}px;transform:rotate(${r}deg)"><div><img src="${shot(img)}"></div></div>`;
 const og = `<style>${base}
@@ -43,13 +43,13 @@ ${phone("margareta-mobile.webp", 760, 120, -6)}
 ${phone("molly-mobile.webp", 1010, 230, 5)}
 ${phone("meggie-mobile.webp", 880, 70, 0)}
 <div class="wrap">
-  <div class="top">${mark("#cfff45", "#0d0d0f")}Sipos Hunor</div>
+  <div class="top">${mark("#cfff45", "#0d0d0f")}Pixelka</div>
   <h1>Weboldal, ami <em>ügyfelet hoz.</em></h1>
   <div class="bottom"><span>70–150 ezer Ft</span><span>1–2 hét</span><span>0 Ft havidíj</span></div>
 </div>`;
 
 const icon = `<style>${base} body { background: #cfff45; display: grid; place-items: center; } svg { width: 100%; height: 100%; }</style>
-<svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#cfff45"/><path d="M11 25.5l6-6-6-6" fill="none" stroke="#0d0d0f" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 27h9" stroke="#0d0d0f" stroke-width="3.4" stroke-linecap="round"/></svg>`;
+<svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#cfff45"/><rect x="10" y="10" width="8.5" height="8.5" rx="1.6" fill="#0d0d0f"/><rect x="19.5" y="10" width="8.5" height="8.5" rx="1.6" fill="#0d0d0f"/><rect x="10" y="19.5" width="8.5" height="8.5" rx="1.6" fill="#0d0d0f"/><rect x="22" y="22" width="8.5" height="8.5" rx="1.6" fill="#0d0d0f"/></svg>`;
 
 (async () => {
   const browser = await chromium.launch();

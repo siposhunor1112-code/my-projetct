@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://siposhunor.hu/sitemap.xml
+Sitemap: https://pixelka.hu/sitemap.xml

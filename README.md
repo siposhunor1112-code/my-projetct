@@ -1,4 +1,4 @@
-# Sipos Hunor – webkészítés (saját weboldal)
+# Pixelka – webkészítés (saját weboldal)
 
 Egyoldalas bemutatkozó és értékesítő oldal: egyedi weboldalak kisvállalkozásoknak, fix áron (70 000 – 150 000 Ft).
 Nincs szükség build lépésre: a `public/` mappa bármilyen statikus tárhelyen kiszolgálható (Cloudflare Workers, Netlify, GitHub Pages) –
@@ -6,9 +6,12 @@ ugyanúgy, mint az ügyféloldalak.
 
 ## ⚠️ Élesítés előtt – ezeket nézd át
 
+0. **E-mail cím** – az oldalon most a `siposhunor1112@gmail.com` szerepel, ami a nevedet tartalmazza. Ha megvan a domain,
+   érdemes egy céges címet létrehozni (pl. `hello@pixelka.hu`), és átírni a `public/script.js` `SITE.email` sorában,
+   az `index.html`-ben (Kapcsolat, `application/ld+json`) is.
 1. **Telefonszám** – `public/script.js`, `SITE.phone` (most `null`, ezért nem látszik). Kisvállalkozók szívesebben telefonálnak:
    ha megadod, megjelenik a Kapcsolatnál és telefonon az alsó sávban is (Hívás gomb).
-2. **Domain** – az oldal a `https://siposhunor.hu/` címet feltételezi. Ha más lesz, írd át itt:
+2. **Domain** – az oldal a `https://pixelka.hu/` címet feltételezi (foglald le a domain.hu-n, ha még szabad). Ha más lesz, írd át itt:
    `public/index.html` (`og:image`, `og:url`, `canonical`, `application/ld+json`), `public/robots.txt`, `public/sitemap.xml`.
 3. **A Meggie Virágbolt élő címe** – az `index.html`-ben a kiemelt munkánál (`<article class="card feature" data-id="meggie" …>`)
    írd a `data-url=""`-be az élő oldal címét. Ekkor megjelenik az „Élő oldal” gomb, a böngészőablak tetején pedig a valódi cím.
@@ -50,7 +53,8 @@ ugyanúgy, mint az ügyféloldalak.
 - Betűk saját tárhelyről (SIL Open Font License): **Archivo** széles, vastag változata (címek), **Instrument Serif** dőlt
   (a kiemelt szavak, pl. „*ügyfelet hoz.*”), **Geist** (szöveg) és **Geist Mono** (címkék, számok).
   Az Archivo le van karcsúsítva (csak a használt vastagságok és a magyar ékezetek): 176 KB helyett 50 KB
-- Logó: lime négyzet, benne egy parancssor-jel `>_` – „aki kódot ír”
+- Név: **Pixelka**. Logó: lime négyzet, benne négy pixel – három rendezett sorban, a negyedik kissé kilép a sorból
+  („egyedi, nem sablon”). A jel az `index.html` alján (`#mark`) és az `assets/favicon.svg`-ben van
 - Megszólítás: magázó, egyszerű és szakmai hangnem, szakszavak nélkül
 
 ## Szekciók – és miért ezek

@@ -1,11 +1,11 @@
 // =========================================================================
-// Sipos Hunor – webkészítés
+// Pixelka – webkészítés
 // Itt az elérhetőségek (SITE), a csomagok (PRESETS) és az oldal minden mozgása.
 // A munkák adatai az index.html-ben vannak (<article class="card">), innen olvassuk ki őket.
 // =========================================================================
 
 const SITE = {
-  name: "Sipos Hunor",
+  name: "Pixelka",
   email: "siposhunor1112@gmail.com",
   phone: null,                 // pl. "+36 30 123 4567" – ha megadja, megjelenik a Hívás gomb is
   status: "Most is vállalok új munkát", // a nyitókép fölötti zöld pöttyös felirat; null = elrejti
@@ -377,7 +377,7 @@ const calc = (() => {
   const compose = () => {
     const f = Object.fromEntries(new FormData(form));
     const name = (f.name || "").trim();
-    const lines = ["Kedves Hunor!", "", "Weboldal készítésére szeretnék ajánlatot kérni.", ""];
+    const lines = ["Jó napot!", "", "Weboldal készítésére szeretnék ajánlatot kérni.", ""];
     if (name) lines.push(`Vállalkozás: ${name}`);
     if (f.type) lines.push(`Szakma: ${f.type}`);
     if (plan.value === "egyedi" && custom) {
