@@ -49,46 +49,49 @@ ugyanúgy, mint az ügyféloldalak.
 
 ## Megjelenés
 
-- Irány: **letisztult, termékoldal-szerű stílus** (az Apple weboldalainak mintájára). Fehér és világosszürke (`#f5f5f7`)
-  szekciók váltakoznak, nagy, félkövér, középre igazított címek, kék „pirula” gombok, lekerekített (28 px) csempék.
-  A felület semleges: a színt a munkák képei adják
-- Nyitókép: cím, egy mondat, két gomb, alatta nagy laptop + iPhone bemutató, alatta pontsor (mint az Apple galériáin)
+- Irány: **prémium, letisztult termékoldal** (az Apple „Pro” oldalainak mintájára). A nyitókép és a munkák **fekete
+  színpadon** állnak, a nagy címek **ezüstös átmenettel**; utána világos, levegős szekciók (fehér és `#f5f5f7`), a végén
+  újra fekete ajánlatkérő. Kék „pirula” gombok, 30 px-es lekerekítésű csempék. A színt a munkák képei adják
+- **Mozgás**, visszafogottan: betöltéskor beúszik a nyitókép; a laptop mögötti halvány fény felveszi a bemutatott oldal
+  színét; görgetésre a blokkok finoman beúsznak (csak ahol a böngésző tudja – a tartalom enélkül is látszik); a
+  „Szemlélet” résznél a telefon helyben marad, és a képernyője lépésenként vált. Aki kikapcsolta az animációkat, annak minden áll
 - **Betű:** iPhone-on és Macen a rendszer saját betűje (SF Pro) jelenik meg, minden más eszközön a hozzá legközelebb álló
   **Inter** (saját tárhelyről, SIL Open Font License, a használt vastagságokra és a magyar ékezetekre karcsúsítva: 42 KB)
-- Szándékosan egy, világos megjelenés (nincs külön sötét mód). Minden szín a `styles.css` elején, a `:root` változókban van
-- Név: **Webzone Stúdió**, rövid változata **Webzo** (domain). Logó: fekete, lekerekített négyzetben vékony „W”.
-  A jel az `index.html` alján (`#mark`), a `404.html`-ben, az `assets/favicon.svg`-ben és a `tools/images.js`-ben van
+- Minden szín a `styles.css` elején, a `:root` változókban van (világos felületek és a „sötét színpad” külön csoportban)
+- Név: **Webzone Stúdió**, rövid változata **Webzo** (domain). Logó: sötét, ezüstös átmenetű lekerekített négyzet, benne
+  vékony „W”. A jel az `index.html` alján (`#mark`), a `404.html`-ben, az `assets/favicon.svg`-ben és a `tools/images.js`-ben van
 - Megszólítás: magázó, egyszerű és szakmai hangnem, szakszavak nélkül
 
 ## Szekciók – és miért ezek
 
 Az oldal egyetlen kérdésre felel minél gyorsabban: *„Megéri-e nekem, hogy ő csinálja a weboldalamat?”*
 
-- **Nyitókép** – mit csinálsz (weboldal, ami ügyfelet hoz), mennyiért (70 000 Ft-tól, havidíj nélkül), két gomb. Alatta
-  **élő bemutató**: a munkáid egy laptopon és egy iPhone-on (a Meggie Virágbolttal indul, mindegyiknél ott a címke: „Átadott
-  munka” vagy „Mintaoldal”), a telefonban az oldal magától legörget, aztán jön a következő. Pontsorral, nyilakkal és ujjal
-  lapozható, rákattintva (vagy Enterrel) megnyílik a teljes oldal, és egy gombbal megállítható
-- **Előnyök** – csemperács: fix ár (70–150 ezer Ft), 0 Ft havidíj, ingyenes első változat, telefonra tervezve (iPhone-képpel),
-  gyors, egyedi, és egy **élő nyitvatartás-példa**: mintanyitvatartással (H–P 9–18, Szo 9–13), budapesti idő szerint mutatja,
-  hogy „Nyitva” vagy „Zárva”, és meddig / mikor nyit (a mintaidőpontok a `script.js` `DEMO_HOURS` részében).
-  Alatta **összehasonlítás**: weboldal-építő vs. ügynökség vs. Webzone Stúdió. Telefonon soronként kártyákká alakul
-- **Munkák** – elöl, nagy csempén az **átadott munka** (Meggie Virágbolt). Alatta a **mintaoldalak** szakmák szerint
-  szűrhetően, „Mintaoldal” címkével. Egérrel fölé állva a kártyán végiggörget a teljes oldal; kattintásra a **nézegető**
-  mutatja telefonon és számítógépen is (telefonon lapokkal vált)
-- **Mit kap** – ikonrács: 8 dolog, ami minden oldalban benne van (élő nyitvatartás, hívás/útvonal, szövegírás, nincs sütisáv…)
-- **Árak** – „Melyik csomag illik Önhöz?”: három oszlop egymás mellett (Alap 70e, **Kirakat 110e – legnépszerűbb**,
-  Prémium 150e), a sorok egy vonalban. Alatta **konfigurátor-szerű árkalkulátor**: a tételekre kattintva élőben számolja a
-  végösszeget, 150 000 Ft-nál megáll. Az „Ezt választom” / „Ajánlatot kérek erre” gomb kitölti az ajánlatkérőt
+- **Nyitókép** (fekete) – cím, egy mondat, ajánlatkérés. Alatta **élő bemutató**: a munkáid egy laptopon és egy iPhone-on
+  (a Meggie Virágbolttal indul, „Átadott munka” / „Mintaoldal” címkével), a telefonban az oldal magától legörget, aztán jön
+  a következő. Pontsorral, nyilakkal, ujjal lapozható, rákattintva megnyílik a teljes oldal, egy gombbal megállítható.
+  Alatta **kulcsszámok**: 70–150 ezer Ft fix ár, 0 Ft havidíj, ingyenes első változat
+- **Munkák** (fekete) – nagy csempén az **átadott munka** (Meggie Virágbolt). Alatta a **mintaoldalak** vízszintes
+  galériában (ujjal húzható, nyilakkal lapozható, kártyánként megáll), szakmák szerint szűrhetően. Egérrel fölé állva a
+  kártyán végiggörget a teljes oldal; kattintásra a **nézegető** mutatja telefonon és számítógépen is
+- **Szemlélet** – helyben maradó telefon, mellette négy alapelv (áttekinthető, egy érintéssel hívható, gyors, egyedi);
+  görgetés közben a telefon képernyője mindig az adott elvhez illő munkát mutatja
+- **Mit kap** – fekete kiemelőcsempe **élő nyitvatartás-példával** (mintanyitvatartás: H–P 9–18, Szo 9–13, budapesti idő
+  szerint mutatja, hogy „Nyitva” vagy „Zárva”, és meddig / mikor nyit – a `script.js` `DEMO_HOURS` részében), alatta
+  ikonrács: 8 dolog, ami minden oldalban benne van
+- **Árak** – „Melyik csomag illik Önhöz?”: három oszlop (Alap 70e, **Kirakat 110e – legnépszerűbb**, Prémium 150e), a sorok
+  egy vonalban. Alatta **konfigurátor-szerű árkalkulátor** (150 000 Ft-nál megáll), és **összehasonlítás**: weboldal-építő
+  vs. ügynökség vs. Webzone Stúdió (telefonon soronként kártyák). Az „Ezt választom” / „Ajánlatot kérek erre” gomb kitölti
+  az ajánlatkérőt
 - **Folyamat** – négy számozott lépés (ez valódi sorrend), alatta a kockázatmentes kezdés
 - **Kérdések** – a nyolc leggyakoribb ellenvetés megválaszolva (havidíj, mi kell tőlem, kié az oldal, Google, webshop…)
-- **Kapcsolat** – ajánlatkérő, ami a látogató **saját levelezőjében** nyit meg egy előre megírt levelet (vállalkozás neve,
-  szakma, csomag vagy a kalkulátor összeállítása, meglévő oldal, üzenet). Van „Szöveg másolása” gomb is (Messengerre).
+- **Kapcsolat** (fekete) – ajánlatkérő, ami a látogató **saját levelezőjében** nyit meg egy előre megírt levelet
+  (vállalkozás neve, szakma, csomag vagy a kalkulátor összeállítása, meglévő oldal, üzenet). Van „Szöveg másolása” gomb is.
   Az oldal semmit nem küld és nem tárol – ezért nem kell adatkezelési tájékoztató és sütisáv
 - **Lábléc** – apró szürke megjegyzések, menü, és a lenyitható impresszum (ha ki van töltve)
 - Telefonon alul megjelenik a **Munkák / (Hívás) / Ajánlatot kérek** sáv – de csak a nyitókép gombjai után, és a Kapcsolatnál eltűnik
 
-Telefonra optimalizálva 320 px-től: nincs vízszintes görgetés, a gombok legalább 44 px magasak, a szövegek nem úsznak be
-(betöltéskor azonnal látszanak), a nézegető teljes képernyős. Aki kikapcsolta az animációkat (`prefers-reduced-motion`), annak minden áll.
+Telefonra optimalizálva 320 px-től: nincs vízszintes görgetés (a galéria saját sávjában görget), a gombok legalább 44 px
+magasak, a nézegető teljes képernyős.
 
 ## Tartalom szerkesztése
 
@@ -96,10 +99,10 @@ Telefonra optimalizálva 320 px-től: nincs vízszintes görgetés, a gombok leg
 - **Árak**: a csomagkártyák az `index.html`-ben (`<section id="arak">`); a kalkulátor tételeinek ára a `data-price`-ban;
   a csomagok tartalma a `script.js` `PRESETS` részében (melyik tétel melyik csomagban van). Ha a csomagárat módosítod,
   a `PLAN_NAMES`-ben és a `<select id="f-plan">`-ben is írd át, valamint az `application/ld+json`-ban
-- **Új munka**: másolj le egy `<article class="card">`-ot, írd át az adatait (`data-id`, `data-cat`, `data-accent` = a színe,
+- **Új munka**: másolj le egy `<article class="card">`-ot (a mintaoldalak galériájában), írd át az adatait (`data-id`, `data-cat`, `data-accent` = a színe,
   `data-name`, `data-host`, `data-sig` = egy rövid mondat a nyitóképre), tegyél be három képet az `assets/work/`-be
   (`<id>-hero.webp`, `<id>-long.webp`, `<id>-mobile.webp`) – a nyitókép bemutatója és a nézegető magától felveszi
-- A `styles.css` és a `script.js` hivatkozásában verziószám van (most `?v=7`): módosítás után növeld, hogy a telefonok biztosan
+- A `styles.css` és a `script.js` hivatkozásában verziószám van (most `?v=8`): módosítás után növeld, hogy a telefonok biztosan
   az új változatot töltsék le
 
 ## Referencia-képek frissítése

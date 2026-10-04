@@ -139,6 +139,7 @@ WORKS.forEach((w) => w.el.style.setProperty("--accent", w.accent));
   const paused = { hover: false, off: false, hidden: false, user: saveData };
   const isPaused = () => paused.hover || paused.off || paused.hidden || paused.user;
   $("[data-stage-total]").textContent = String(WORKS.length).padStart(2, "0");
+  stage.style.setProperty("--glow", WORKS[i].accent);
 
   // Pontsor: munkánként egy pont, az aktuális megnyúlik
   const dotsEl = $("[data-stage-dots]");
@@ -186,6 +187,7 @@ WORKS.forEach((w) => w.el.style.setProperty("--accent", w.accent));
     clearTimeout(timer);
     i = (n + WORKS.length) % WORKS.length;
     const w = WORKS[i];
+    stage.style.setProperty("--glow", w.accent);
     stage.classList.add("is-swapping");
     await Promise.all([preload(img(w.id, "mobile")), preload(img(w.id, "hero")), new Promise((r) => setTimeout(r, reduce ? 0 : 420))]);
     anim?.cancel();
@@ -251,7 +253,10 @@ WORKS.forEach((w) => w.el.style.setProperty("--accent", w.accent));
   chips.forEach((c) => c.addEventListener("click", () => {
     const f = c.dataset.filter;
     chips.forEach((x) => { const on = x === c; x.classList.toggle("is-on", on); x.setAttribute("aria-pressed", on); });
-    $$(".grid .card").forEach((el) => (el.hidden = f !== "all" && el.dataset.cat !== f));
+    $$("[data-grid] .card").forEach((el) => (el.hidden = f !== "all" && el.dataset.cat !== f));
+    const rail = $("[data-grid]");
+    rail.scrollTo({ left: 0, behavior: reduce ? "auto" : "smooth" });
+    rail.dispatchEvent(new Event("scroll"));
   }));
 
   WORKS.forEach((w, n) => {
@@ -268,6 +273,57 @@ WORKS.forEach((w) => w.el.style.setProperty("--accent", w.accent));
       pic.classList.add("is-long");
     });
   });
+})();
+
+// ---------- Vízszintes galéria: nyilak, a végeken letiltva ----------
+(() => {
+  const rail = $("[data-grid]"), prev = $("[data-rail-prev]"), next = $("[data-rail-next]");
+  if (!rail) return;
+  const step = () => {
+    const card = $(".card:not([hidden])", rail);
+    return card ? card.getBoundingClientRect().width + parseFloat(getComputedStyle(rail).columnGap || 20) : rail.clientWidth * 0.8;
+  };
+  const sync = () => {
+    prev.disabled = rail.scrollLeft < 4;
+    next.disabled = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;
+  };
+  prev.addEventListener("click", () => rail.scrollBy({ left: -step(), behavior: reduce ? "auto" : "smooth" }));
+  next.addEventListener("click", () => rail.scrollBy({ left: step(), behavior: reduce ? "auto" : "smooth" }));
+  rail.addEventListener("scroll", sync, { passive: true });
+  addEventListener("resize", sync);
+  sync();
+})();
+
+// ---------- Szemlélet: a helyben maradó telefon képernyője lépésenként vált ----------
+(() => {
+  const steps = $$("[data-scene]"), pic = $("[data-scene-img]");
+  if (!steps.length || !pic) return;
+  const phone = pic.closest(".phone");
+  let current = steps[0].dataset.scene, swapT = 0;
+  const swap = (id) => {
+    if (id === current) return;
+    current = id;
+    clearTimeout(swapT);
+    phone.classList.add("is-swapping");
+    swapT = setTimeout(async () => {
+      await preload(img(id, "mobile"));
+      if (current !== id) return;
+      pic.src = img(id, "mobile");
+      phone.classList.remove("is-swapping");
+    }, reduce ? 0 : 280);
+  };
+  // a lépések képeit előre betöltjük, amikor a rész közelébe ér a látogató
+  new IntersectionObserver(([en], obs) => {
+    if (!en.isIntersecting) return;
+    steps.forEach((st) => preload(img(st.dataset.scene, "mobile")));
+    obs.disconnect();
+  }, { rootMargin: "600px 0px" }).observe($(".scene"));
+  const io = new IntersectionObserver((entries) => entries.forEach((en) => {
+    if (!en.isIntersecting) return;
+    steps.forEach((st) => st.classList.toggle("is-on", st === en.target));
+    swap(en.target.dataset.scene);
+  }), { rootMargin: "-45% 0px -45% 0px" });
+  steps.forEach((st) => io.observe(st));
 })();
 
 // ---------- Munka-nézegető ----------
