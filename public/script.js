@@ -1,11 +1,11 @@
 // =========================================================================
-// Pixelka – webkészítés
+// Webzone Stúdió (Webzo) – webkészítés
 // Itt az elérhetőségek (SITE), a csomagok (PRESETS) és az oldal minden mozgása.
 // A munkák adatai az index.html-ben vannak (<article class="card">), innen olvassuk ki őket.
 // =========================================================================
 
 const SITE = {
-  name: "Pixelka",
+  name: "Webzone Stúdió",
   email: "siposhunor1112@gmail.com",
   phone: null,                 // pl. "+36 30 123 4567" – ha megadja, megjelenik a Hívás gomb is
   status: "Most is vállalok új munkát", // a nyitókép fölötti zöld pöttyös felirat; null = elrejti
@@ -14,7 +14,7 @@ const SITE = {
 // Impresszum (a magyar jogszabályok szerint kötelező) – töltse ki, és megjelenik a láblécben.
 // Amíg a "name" üres, az impresszum nem látszik.
 const LEGAL = {
-  name: "",            // pl. "Pixelka – Minta Péter egyéni vállalkozó" vagy a cég neve
+  name: "",            // pl. "Webzone Stúdió – Minta Péter egyéni vállalkozó" vagy a cég neve
   address: "",         // székhely
   taxNumber: "",       // adószám
   registry: "",        // nyilvántartási szám / cégjegyzékszám

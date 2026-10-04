@@ -21,7 +21,7 @@ const base = `
   html, body { width: 100%; height: 100%; }
   body { background: #0d0d0f; color: #f2efe7; overflow: hidden; position: relative; font-family: Display; }
 `;
-const mark = (bg, fg) => `<svg viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="${bg}"/><rect x="10" y="10" width="8.5" height="8.5" rx="1.6" fill="${fg}"/><rect x="19.5" y="10" width="8.5" height="8.5" rx="1.6" fill="${fg}"/><rect x="10" y="19.5" width="8.5" height="8.5" rx="1.6" fill="${fg}"/><rect x="22" y="22" width="8.5" height="8.5" rx="1.6" fill="${fg}"/></svg>`;
+const mark = (bg, fg) => `<svg viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="${bg}"/><path d="M9.5 13l5 15 5.5-12 5.5 12 5-15" fill="none" stroke="${fg}" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
 const phone = (img, x, y, r) => `<div class="ph" style="left:${x}px;top:${y}px;transform:rotate(${r}deg)"><div><img src="${shot(img)}"></div></div>`;
 const og = `<style>${base}
@@ -31,7 +31,7 @@ const og = `<style>${base}
   .top svg { width: 52px; height: 52px; }
   h1 { margin-top: auto; font-weight: 780; font-stretch: 118%; font-size: 92px; line-height: .9; letter-spacing: -.045em; }
   h1 em { font-family: Serif; font-style: italic; font-weight: 400; font-stretch: 100%; font-size: 1.16em; letter-spacing: -.01em; color: #cfff45; }
-  .bottom { margin-top: 34px; display: flex; gap: 12px; font: 500 21px/1 Mono; }
+  .bottom { margin-top: 34px; display: flex; gap: 10px; font: 500 18px/1 Mono; white-space: nowrap; }
   .bottom span { padding: 12px 16px; border-radius: 999px; border: 1px solid rgba(242,239,231,.2); }
   .bottom span:first-child { background: #cfff45; color: #0d0d0f; border-color: #cfff45; }
   .ph { position: absolute; width: 230px; padding: 7px; border-radius: 34px; background: #0a0a0c; box-shadow: 0 0 0 1.5px #34343b, 0 30px 60px rgba(0,0,0,.6); }
@@ -43,13 +43,13 @@ ${phone("margareta-mobile.webp", 760, 120, -6)}
 ${phone("molly-mobile.webp", 1010, 230, 5)}
 ${phone("meggie-mobile.webp", 880, 70, 0)}
 <div class="wrap">
-  <div class="top">${mark("#cfff45", "#0d0d0f")}Pixelka</div>
+  <div class="top">${mark("#cfff45", "#0d0d0f")}Webzone Stúdió</div>
   <h1>Weboldal, ami <em>ügyfelet hoz.</em></h1>
   <div class="bottom"><span>70–150 ezer Ft</span><span>0 Ft havidíj</span><span>Első változat ingyen</span></div>
 </div>`;
 
 const icon = `<style>${base} body { background: #cfff45; display: grid; place-items: center; } svg { width: 100%; height: 100%; }</style>
-<svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#cfff45"/><rect x="10" y="10" width="8.5" height="8.5" rx="1.6" fill="#0d0d0f"/><rect x="19.5" y="10" width="8.5" height="8.5" rx="1.6" fill="#0d0d0f"/><rect x="10" y="19.5" width="8.5" height="8.5" rx="1.6" fill="#0d0d0f"/><rect x="22" y="22" width="8.5" height="8.5" rx="1.6" fill="#0d0d0f"/></svg>`;
+<svg viewBox="0 0 40 40"><rect width="40" height="40" fill="#cfff45"/><path d="M9.5 13l5 15 5.5-12 5.5 12 5-15" fill="none" stroke="#0d0d0f" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
 (async () => {
   const browser = await chromium.launch();
