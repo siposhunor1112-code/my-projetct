@@ -132,15 +132,26 @@ WORKS.forEach((w) => w.el.style.setProperty("--accent", w.accent));
   const devices = $(".stage__devices", stage);
   const phoneImg = $("[data-stage-phone]"), deskImg = $("[data-stage-desk]");
   const screen = phoneImg.parentElement;
-  const root = document.documentElement;
   // a bemutató az átadott munkával (Meggie Virágbolt) indul
   let i = Math.max(0, WORKS.findIndex((w) => w.id === "meggie")), anim = null, timer = 0, busy = false;
-  root.style.setProperty("--glow", WORKS[i].accent);
   // Adattakarékos módban (vagy ha a látogató megállítja) nem lapoz magától
   const saveData = !!navigator.connection?.saveData;
   const paused = { hover: false, off: false, hidden: false, user: saveData };
   const isPaused = () => paused.hover || paused.off || paused.hidden || paused.user;
   $("[data-stage-total]").textContent = String(WORKS.length).padStart(2, "0");
+
+  // Pontsor: munkánként egy pont, az aktuális megnyúlik
+  const dotsEl = $("[data-stage-dots]");
+  const dots = WORKS.map((w, n) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("aria-label", w.name);
+    b.addEventListener("click", () => { if (n !== i) show(n); });
+    dotsEl.append(b);
+    return b;
+  });
+  const syncDots = () => dots.forEach((b, n) => b.setAttribute("aria-current", n === i ? "true" : "false"));
+  syncDots();
 
   const queueNext = (ms = reduce ? 5200 : 1100) => {
     clearTimeout(timer);
@@ -175,7 +186,6 @@ WORKS.forEach((w) => w.el.style.setProperty("--accent", w.accent));
     clearTimeout(timer);
     i = (n + WORKS.length) % WORKS.length;
     const w = WORKS[i];
-    root.style.setProperty("--glow", w.accent);
     stage.classList.add("is-swapping");
     await Promise.all([preload(img(w.id, "mobile")), preload(img(w.id, "hero")), new Promise((r) => setTimeout(r, reduce ? 0 : 420))]);
     anim?.cancel();
@@ -188,6 +198,7 @@ WORKS.forEach((w) => w.el.style.setProperty("--accent", w.accent));
     $("[data-stage-kind]").textContent = w.kind;
     $("[data-stage-kind]").classList.toggle("is-demo", w.kind !== "Átadott munka");
     $("[data-stage-sig]").textContent = w.sig;
+    syncDots();
     stage.classList.remove("is-swapping");
     busy = false;
     scrollPhone();
@@ -229,23 +240,6 @@ WORKS.forEach((w) => w.el.style.setProperty("--accent", w.accent));
   if (finePointer) {
     stage.addEventListener("pointerenter", () => setPause("hover", true));
     stage.addEventListener("pointerleave", () => setPause("hover", false));
-  }
-
-  // Egérre finoman megdőlnek a készülékek
-  if (finePointer && !reduce) {
-    const hero = $(".hero"), browser = $(".stage__browser"), phone = $(".stage__phone");
-    let raf = 0, tx = 0, ty = 0;
-    hero.addEventListener("pointermove", (e) => {
-      const r = hero.getBoundingClientRect();
-      tx = (e.clientX - r.left) / r.width - 0.5;
-      ty = (e.clientY - r.top) / r.height - 0.5;
-      if (!raf) raf = requestAnimationFrame(() => {
-        raf = 0;
-        browser.style.transform = `rotateY(${tx * 7 - 4}deg) rotateX(${-ty * 5}deg) translateZ(-40px)`;
-        phone.style.transform = `rotateY(${tx * 10}deg) rotateX(${-ty * 7}deg) translate(${tx * 14}px, ${ty * 10}px)`;
-      });
-    });
-    hero.addEventListener("pointerleave", () => { browser.style.transform = phone.style.transform = ""; });
   }
 
   if (phoneImg.complete) scrollPhone(); else phoneImg.addEventListener("load", scrollPhone, { once: true });
@@ -446,7 +440,7 @@ const calc = (() => {
   });
 })();
 
-// ---------- Élő ajtótábla (minta): nyitva van-e most a példabolt ----------
+// ---------- Élő nyitvatartás (minta): nyitva van-e most a példabolt ----------
 (() => {
   const sign = $("[data-sign]");
   if (!sign) return;
