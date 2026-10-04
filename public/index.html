@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Webzone Stúdió – Egyedi weboldal kisvállalkozásoknak, 70 000 Ft-tól</title>
   <meta name="description" content="Egyedi tervezésű, telefonra szabott weboldalak kisvállalkozásoknak. Fix ár 70 000 és 150 000 Ft között, havidíj nélkül.">
-  <meta name="theme-color" content="#0d0d0f">
-  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#f3f5fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c1020" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
   <link rel="canonical" href="https://webzo.hu/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="hu_HU">
@@ -20,10 +21,10 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-  <link rel="preload" href="/assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/figtree-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/work/meggie-mobile.webp" as="image" type="image/webp">
-  <link rel="stylesheet" href="/styles.css?v=5">
+  <link rel="stylesheet" href="/styles.css?v=6">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,7 +54,7 @@
     <div class="wrap top__inner">
       <a class="logo" href="#" aria-label="Webzone Stúdió – az oldal teteje">
         <svg class="logo__mark" aria-hidden="true"><use href="#mark"/></svg>
-        <span class="logo__word">Webzone Stúdió<span class="logo__sub">webkészítés</span></span>
+        <span class="logo__word">Webzone Stúdió</span>
       </a>
       <nav class="nav" aria-label="Fő menü">
         <a href="#munkak">Munkák</a>
@@ -62,7 +63,7 @@
         <a href="#folyamat">Folyamat</a>
         <a href="#kerdesek">Kérdések</a>
       </nav>
-      <a class="btn btn--lime btn--sm top__cta" href="#kapcsolat">Ajánlatot kérek</a>
+      <a class="btn btn--main btn--sm top__cta" href="#kapcsolat">Ajánlatot kérek</a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menü">
         <span></span><span></span>
       </button>
@@ -71,12 +72,12 @@
 
   <div class="menu" id="menu" hidden>
     <nav class="wrap menu__nav" aria-label="Menü">
-      <a href="#munkak"><span>01</span>Munkák</a>
-      <a href="#mit-kap"><span>02</span>Mit kap</a>
-      <a href="#arak"><span>03</span>Árak</a>
-      <a href="#folyamat"><span>04</span>Folyamat</a>
-      <a href="#kerdesek"><span>05</span>Kérdések</a>
-      <a href="#kapcsolat"><span>06</span>Kapcsolat</a>
+      <a href="#munkak">Munkák</a>
+      <a href="#mit-kap">Mit kap</a>
+      <a href="#arak">Árak</a>
+      <a href="#folyamat">Folyamat</a>
+      <a href="#kerdesek">Kérdések</a>
+      <a href="#kapcsolat">Kapcsolat</a>
     </nav>
   </div>
 
@@ -84,28 +85,30 @@
 
     <!-- ============ Nyitókép ============ -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__glow" aria-hidden="true"></div>
       <div class="wrap hero__grid">
         <div class="hero__text">
-          <p class="badge" data-slots hidden><span class="dot"></span><span data-slots-text></span></p>
-          <p class="eyebrow">Webkészítés kisvállalkozásoknak</p>
+          <p class="status" data-slots hidden><span class="status__dot"></span><span data-slots-text></span></p>
           <h1 class="hero__title" id="hero-title">
-            <span class="hero__line">Weboldal,</span>
-            <span class="hero__line">ami <em>ügyfelet</em></span>
-            <span class="hero__line"><em>hoz.</em></span>
+            <span class="hero__line">Weboldal, ami</span>
+            <span class="plate">ügyfelet hoz.</span>
           </h1>
-          <p class="hero__lead">Egyedi weboldal az Ön vállalkozásának: telefonra tervezve, gyors betöltéssel, havidíj nélkül. <strong>Fix ár, 70&nbsp;000&nbsp;Ft-tól.</strong></p>
+          <p class="hero__lead">Egyedi weboldal kisvállalkozásoknak: telefonra tervezve, gyors betöltéssel, havidíj nélkül.</p>
           <div class="hero__actions">
-            <a class="btn btn--lime" href="#kapcsolat">Ajánlatot kérek <svg aria-hidden="true"><use href="#arrow"/></svg></a>
-            <a class="btn btn--ghost" href="#munkak">Munkáim</a>
+            <a class="btn btn--main" href="#kapcsolat">Ajánlatot kérek <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+            <a class="btn btn--line" href="#munkak">Munkáim</a>
           </div>
+          <dl class="facts">
+            <div><dt>Fix ár</dt><dd>70–150 <small>ezer Ft</small></dd></div>
+            <div><dt>Havidíj</dt><dd>0 <small>Ft</small></dd></div>
+            <div><dt>Első változat</dt><dd>Ingyen</dd></div>
+          </dl>
         </div>
 
         <!-- Élő bemutató: a munkák telefonon és számítógépen -->
         <div class="stage" aria-label="Munkák bemutatója" role="region">
           <div class="stage__devices" role="button" tabindex="0" aria-label="A bemutatott oldal megnyitása teljes méretben">
             <div class="browser stage__browser" aria-hidden="true">
-              <div class="browser__bar"><i></i><i></i><i></i><span class="browser__url" data-stage-url>meggie-viragbolt</span></div>
+              <div class="bar"><i></i><i></i><i></i><span class="bar__url" data-stage-url>meggie-viragbolt</span></div>
               <div class="browser__screen"><img data-stage-desk src="/assets/work/meggie-hero.webp" width="1200" height="750" alt=""></div>
             </div>
             <div class="phone stage__phone">
@@ -115,104 +118,66 @@
           </div>
           <div class="stage__caption">
             <div class="stage__info">
-              <span class="stage__count"><span class="stage__kind" data-stage-kind>Átadott munka</span> <span data-stage-n>01</span> / <span data-stage-total>10</span></span>
+              <span class="stage__count"><span class="kind" data-stage-kind>Átadott munka</span> <span class="stage__n"><span data-stage-n>01</span> / <span data-stage-total>10</span></span></span>
               <strong class="stage__name" data-stage-name>Meggie Virágbolt</strong>
               <span class="stage__sig" data-stage-sig>Virágbolt a Blaha Lujza téren</span>
             </div>
             <div class="stage__ctrl">
               <button type="button" class="round" data-stage-pause aria-label="Bemutató megállítása" aria-pressed="false"><svg class="ic-pause" aria-hidden="true"><use href="#pause"/></svg><svg class="ic-play" aria-hidden="true"><use href="#play"/></svg></button>
-              <button type="button" class="round" data-stage-prev aria-label="Előző"><svg aria-hidden="true"><use href="#arrow"/></svg></button>
+              <button type="button" class="round round--flip" data-stage-prev aria-label="Előző"><svg aria-hidden="true"><use href="#arrow"/></svg></button>
               <button type="button" class="round" data-stage-next aria-label="Következő"><svg aria-hidden="true"><use href="#arrow"/></svg></button>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="wrap">
-        <dl class="facts">
-          <div><dt>Fix ár</dt><dd>70–150<small>e Ft</small></dd></div>
-          <div><dt>Havidíj</dt><dd>0<small>Ft</small></dd></div>
-          <div><dt>Első változat</dt><dd>Ingyen</dd></div>
-        </dl>
-      </div>
     </section>
-
-    <!-- ============ Szalag ============ -->
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker__track">
-        <span>Egyedi tervezés</span><span>Telefonra optimalizálva</span><span>Fix ár</span><span>Nincs havidíj</span><span>Szövegírással</span><span>Keresőbarát</span><span>Gyors betöltés</span>
-        <span>Egyedi tervezés</span><span>Telefonra optimalizálva</span><span>Fix ár</span><span>Nincs havidíj</span><span>Szövegírással</span><span>Keresőbarát</span><span>Gyors betöltés</span>
-      </div>
-    </div>
 
     <!-- ============ Szemlélet ============ -->
     <section class="section why" aria-labelledby="why-title">
       <div class="wrap">
-        <div class="why__head">
-          <p class="eyebrow"><span class="num">(00)</span> Szemlélet</p>
-          <h2 class="h2" id="why-title">A jó weboldal <em>egyszerű.</em></h2>
+        <div class="head">
+          <p class="eyebrow">Szemlélet</p>
+          <h2 class="h2" id="why-title">A jó weboldal egyszerű.</h2>
           <p class="lead">A látogatók többsége telefonról érkezik, és néhány másodperc alatt eldönti, hogy marad-e. Ezért minden oldalt úgy tervezek, hogy a lényeg azonnal látszódjon.</p>
         </div>
-        <ol class="pillars">
+        <ul class="pillars">
           <li>
-            <span class="pillars__n">01</span>
             <h3>Áttekinthető</h3>
             <p>Mit kínál, hol található, mikor van nyitva és hogyan érhető el – mind az első képernyőn.</p>
           </li>
           <li>
-            <span class="pillars__n">02</span>
             <h3>Telefonra tervezve</h3>
             <p>Jól olvasható szöveg, kényelmes gombok. Egy érintéssel hívható, egy érintéssel megtalálható.</p>
           </li>
           <li>
-            <span class="pillars__n">03</span>
             <h3>Gyors</h3>
             <p>Nincsenek felesleges bővítmények, ezért az oldal pillanatok alatt betöltődik.</p>
           </li>
           <li>
-            <span class="pillars__n">04</span>
             <h3>Egyedi</h3>
             <p>Nem sablonból készül: a megjelenés a vállalkozásához és a szakmájához igazodik.</p>
           </li>
-        </ol>
+        </ul>
 
-        <div class="versus" role="table" aria-label="Összehasonlítás">
-          <div class="versus__row versus__row--head" role="row">
-            <span role="columnheader"><span class="sr">Szempont</span></span>
-            <span role="columnheader">Weboldal-építő</span>
-            <span role="columnheader">Ügynökség</span>
-            <span role="columnheader" class="versus__me">Velem</span>
-          </div>
-          <div class="versus__row" role="row">
-            <span role="rowheader">Ár</span>
-            <span role="cell" data-l="Weboldal-építő">Havi előfizetés</span>
-            <span role="cell" data-l="Ügynökség">Általában több százezer Ft</span>
-            <span role="cell" data-l="Velem" class="versus__me">70–150 ezer Ft, egyszeri díj</span>
-          </div>
-          <div class="versus__row" role="row">
-            <span role="rowheader">Megjelenés</span>
-            <span role="cell" data-l="Weboldal-építő">Sablon</span>
-            <span role="cell" data-l="Ügynökség">Egyedi</span>
-            <span role="cell" data-l="Velem" class="versus__me">Egyedi</span>
-          </div>
-          <div class="versus__row" role="row">
-            <span role="rowheader">Szövegek</span>
-            <span role="cell" data-l="Weboldal-építő">Önnek kell megírnia</span>
-            <span role="cell" data-l="Ügynökség">Gyakran felárért</span>
-            <span role="cell" data-l="Velem" class="versus__me">Az árban benne van</span>
-          </div>
-          <div class="versus__row" role="row">
-            <span role="rowheader">Kapcsolattartás</span>
-            <span role="cell" data-l="Weboldal-építő">Ügyfélszolgálat</span>
-            <span role="cell" data-l="Ügynökség">Projektmenedzser</span>
-            <span role="cell" data-l="Velem" class="versus__me">Közvetlenül velem</span>
-          </div>
-          <div class="versus__row" role="row">
-            <span role="rowheader">Tulajdonjog</span>
-            <span role="cell" data-l="Weboldal-építő">A szolgáltatónál marad</span>
-            <span role="cell" data-l="Ügynökség">Szerződéstől függ</span>
-            <span role="cell" data-l="Velem" class="versus__me">Az oldal az Öné</span>
-          </div>
+        <div class="versus-wrap">
+          <table class="versus">
+            <caption class="sr">A lehetőségek összehasonlítása</caption>
+            <thead>
+              <tr>
+                <td></td>
+                <th scope="col">Weboldal-építő</th>
+                <th scope="col">Ügynökség</th>
+                <th scope="col" class="versus__me">Webzone Stúdió</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Ár</th><td data-l="Weboldal-építő">Havi előfizetés</td><td data-l="Ügynökség">Általában több százezer Ft</td><td data-l="Webzone Stúdió" class="versus__me">70–150 ezer Ft, egyszeri díj</td></tr>
+              <tr><th scope="row">Megjelenés</th><td data-l="Weboldal-építő">Sablon</td><td data-l="Ügynökség">Egyedi</td><td data-l="Webzone Stúdió" class="versus__me">Egyedi</td></tr>
+              <tr><th scope="row">Szövegek</th><td data-l="Weboldal-építő">Önnek kell megírnia</td><td data-l="Ügynökség">Gyakran felárért</td><td data-l="Webzone Stúdió" class="versus__me">Az árban benne van</td></tr>
+              <tr><th scope="row">Kapcsolattartás</th><td data-l="Weboldal-építő">Ügyfélszolgálat</td><td data-l="Ügynökség">Projektmenedzser</td><td data-l="Webzone Stúdió" class="versus__me">Közvetlenül velem</td></tr>
+              <tr><th scope="row">Tulajdonjog</th><td data-l="Weboldal-építő">A szolgáltatónál marad</td><td data-l="Ügynökség">Szerződéstől függ</td><td data-l="Webzone Stúdió" class="versus__me">Az oldal az Öné</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -220,9 +185,9 @@
     <!-- ============ Munkák ============ -->
     <section class="section work" id="munkak" aria-labelledby="work-title">
       <div class="wrap">
-        <div class="work__head">
+        <div class="head head--split">
           <div>
-            <p class="eyebrow"><span class="num">(01)</span> Munkák</p>
+            <p class="eyebrow">Munkák</p>
             <h2 class="h2" id="work-title">Munkáim</h2>
           </div>
           <p class="lead">Az átadott munkám és a mintaoldalaim. Bármelyikre kattintva megnézheti a teljes oldalt telefonon és számítógépen is.</p>
@@ -232,14 +197,15 @@
         <article class="card feature" data-id="meggie" data-kind="Átadott munka" data-cat="virag" data-accent="#d2446f" data-url=""
           data-name="Meggie Virágbolt" data-host="meggie-viragbolt" data-sig="Virágbolt a Blaha Lujza téren">
           <button type="button" class="card__shot" aria-label="Meggie Virágbolt – teljes oldal megnyitása">
-            <img src="/assets/work/meggie-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Meggie Virágbolt weboldalának nyitóképe">
+            <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="bar__url">meggie-viragbolt</span></span>
+            <span class="card__pic"><img src="/assets/work/meggie-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Meggie Virágbolt weboldalának nyitóképe"></span>
           </button>
           <div class="card__body feature__body">
-            <p class="kind kind--client">Átadott munka</p>
-            <p class="card__meta">Virágbolt · Budapest, Blaha Lujza tér</p>
+            <p class="kind">Átadott munka</p>
+            <p class="card__meta"><span class="swatch" aria-hidden="true"></span>Virágbolt · Budapest, Blaha Lujza tér</p>
             <h3 class="card__name">Meggie Virágbolt</h3>
             <p class="card__desc">Egyoldalas weboldal a Blaha Lujza téri aluljáróban működő virágboltnak. A látogató azonnal látja, hogy a bolt nyitva van-e, böngészhet a kollekcióban, és egy érintéssel telefonálhat vagy útvonalat tervezhet.</p>
-            <ul class="feature__list">
+            <ul class="checks">
               <li>A bolt színeire tervezett, egyedi megjelenés</li>
               <li>Kódból rajzolt virágillusztrációk – fotók nélkül is</li>
               <li>Lapozható kollekció</li>
@@ -249,8 +215,8 @@
             </ul>
             <ul class="tags" hidden><li>Egyedi megjelenés</li><li>Kollekció</li><li>Élő nyitvatartás</li></ul>
             <div class="feature__actions">
-              <button type="button" class="btn btn--lime" data-open>Teljes oldal megtekintése <svg aria-hidden="true"><use href="#arrow"/></svg></button>
-              <a class="btn btn--ghost" data-live href="#" target="_blank" rel="noopener" hidden>Élő oldal</a>
+              <button type="button" class="btn btn--main" data-open>Teljes oldal megtekintése <svg aria-hidden="true"><use href="#arrow"/></svg></button>
+              <a class="btn btn--line" data-live href="#" target="_blank" rel="noopener" hidden>Élő oldal</a>
             </div>
           </div>
         </article>
@@ -274,10 +240,11 @@
             <article class="card" data-id="zenith" data-kind="Mintaoldal" data-cat="auto" data-accent="#d6bf94" data-url=""
               data-name="Zenith Detailing" data-host="zenith-detailing" data-sig="Autóesztétika">
               <button type="button" class="card__shot" aria-label="Zenith Detailing – teljes oldal megnyitása">
-                <img src="/assets/work/zenith-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Zenith Detailing mintaoldal nyitóképe">
+                <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="bar__url">zenith-detailing</span></span>
+                <span class="card__pic"><img src="/assets/work/zenith-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Zenith Detailing mintaoldal nyitóképe"></span>
               </button>
               <div class="card__body">
-                <p class="card__meta">Autóesztétika · Mintaoldal</p>
+                <p class="card__meta"><span class="swatch" aria-hidden="true"></span>Autóesztétika · Mintaoldal</p>
                 <h3 class="card__name">Zenith Detailing</h3>
                 <p class="card__desc">Valós időben rajzolt, fényes fekete fényezés a nyitóképen. Interaktív bemutató a polírozás eredményéről, ajánlatkérővel.</p>
                 <ul class="tags"><li>3D-s nyitókép</li><li>Interaktív bemutató</li><li>Ajánlatkérő</li></ul>
@@ -287,10 +254,11 @@
             <article class="card" data-id="molly" data-kind="Mintaoldal" data-cat="kisallat" data-accent="#e3a46c" data-url=""
               data-name="Molly &amp; Sharon" data-host="molly-sharon-kutyakozmetika" data-sig="Kutyakozmetika">
               <button type="button" class="card__shot" aria-label="Molly &amp; Sharon – teljes oldal megnyitása">
-                <img src="/assets/work/molly-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Molly &amp; Sharon mintaoldal nyitóképe">
+                <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="bar__url">molly-sharon-kutyakozmetika</span></span>
+                <span class="card__pic"><img src="/assets/work/molly-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Molly &amp; Sharon mintaoldal nyitóképe"></span>
               </button>
               <div class="card__body">
-                <p class="card__meta">Kutyakozmetika · Mintaoldal</p>
+                <p class="card__meta"><span class="swatch" aria-hidden="true"></span>Kutyakozmetika · Mintaoldal</p>
                 <h3 class="card__name">Molly &amp; Sharon</h3>
                 <p class="card__desc">Interaktív nyitókép: egy bunda, amelyet a látogató megfésülhet és megnyírhat. Kezelések, bundaápolási útmutató és időpontkérés.</p>
                 <ul class="tags"><li>Interaktív nyitókép</li><li>Kezelések</li><li>Időpontkérés</li></ul>
@@ -300,10 +268,11 @@
             <article class="card" data-id="lashes" data-kind="Mintaoldal" data-cat="szepseg" data-accent="#e7b9ac" data-url=""
               data-name="Lashes by Tordai Mónika" data-host="lashes-by-tordai-monika" data-sig="Szempilla-stúdió">
               <button type="button" class="card__shot" aria-label="Lashes by Tordai Mónika – teljes oldal megnyitása">
-                <img src="/assets/work/lashes-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Lashes by Tordai Mónika mintaoldal nyitóképe">
+                <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="bar__url">lashes-by-tordai-monika</span></span>
+                <span class="card__pic"><img src="/assets/work/lashes-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Lashes by Tordai Mónika mintaoldal nyitóképe"></span>
               </button>
               <div class="card__body">
-                <p class="card__meta">Szempilla-stúdió · Mintaoldal</p>
+                <p class="card__meta"><span class="swatch" aria-hidden="true"></span>Szempilla-stúdió · Mintaoldal</p>
                 <h3 class="card__name">Lashes by Tordai Mónika</h3>
                 <p class="card__desc">Online időpontfoglalás élő naptárral: a vendég látja a szabad időpontokat, a tulajdonos egy kezelőfelületen kezeli a foglalásokat.</p>
                 <ul class="tags"><li>Online foglalás</li><li>Kezelőfelület</li><li>Árlista</li></ul>
@@ -313,10 +282,11 @@
             <article class="card" data-id="lutri" data-kind="Mintaoldal" data-cat="vendeglatas" data-accent="#ff3b4f" data-url=""
               data-name="Lutri Eszpresszó" data-host="lutri-eszpresszo" data-sig="Presszó és söröző">
               <button type="button" class="card__shot" aria-label="Lutri Eszpresszó – teljes oldal megnyitása">
-                <img src="/assets/work/lutri-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Lutri Eszpresszó mintaoldal nyitóképe">
+                <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="bar__url">lutri-eszpresszo</span></span>
+                <span class="card__pic"><img src="/assets/work/lutri-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Lutri Eszpresszó mintaoldal nyitóképe"></span>
               </button>
               <div class="card__body">
-                <p class="card__meta">Presszó és söröző · Mintaoldal</p>
+                <p class="card__meta"><span class="swatch" aria-hidden="true"></span>Presszó és söröző · Mintaoldal</p>
                 <h3 class="card__name">Lutri Eszpresszó</h3>
                 <p class="card__desc">Neon cégér a nyitóképen, itallap, élő nyitvatartás és időjárás. Telefonra alkalmazásként is telepíthető.</p>
                 <ul class="tags"><li>Telepíthető</li><li>Itallap</li><li>Élő nyitvatartás</li></ul>
@@ -326,10 +296,11 @@
             <article class="card" data-id="penge" data-kind="Mintaoldal" data-cat="auto" data-accent="#e5342b" data-url=""
               data-name="Penge GLC autószerviz" data-host="penge-glc-autoszerviz" data-sig="Autószerviz">
               <button type="button" class="card__shot" aria-label="Penge GLC autószerviz – teljes oldal megnyitása">
-                <img src="/assets/work/penge-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Penge GLC autószerviz mintaoldal nyitóképe">
+                <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="bar__url">penge-glc-autoszerviz</span></span>
+                <span class="card__pic"><img src="/assets/work/penge-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Penge GLC autószerviz mintaoldal nyitóképe"></span>
               </button>
               <div class="card__body">
-                <p class="card__meta">Autószerviz · Mintaoldal</p>
+                <p class="card__meta"><span class="swatch" aria-hidden="true"></span>Autószerviz · Mintaoldal</p>
                 <h3 class="card__name">Penge GLC autószerviz</h3>
                 <p class="card__desc">Animált műszaki rajz a szerviz fő területeivel, és egy hibakereső, amely tünetek alapján segít eligazodni.</p>
                 <ul class="tags"><li>Animált rajz</li><li>Hibakereső</li><li>Időpontkérés</li></ul>
@@ -339,10 +310,11 @@
             <article class="card" data-id="gordon" data-kind="Mintaoldal" data-cat="szepseg" data-accent="#c18a63" data-url=""
               data-name="Gordon Camenzuli" data-host="gordon-camenzuli" data-sig="Masszázsterapeuta">
               <button type="button" class="card__shot" aria-label="Gordon Camenzuli – teljes oldal megnyitása">
-                <img src="/assets/work/gordon-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Gordon Camenzuli mintaoldal nyitóképe">
+                <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="bar__url">gordon-camenzuli</span></span>
+                <span class="card__pic"><img src="/assets/work/gordon-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Gordon Camenzuli mintaoldal nyitóképe"></span>
               </button>
               <div class="card__body">
-                <p class="card__meta">Masszázsterapeuta · Mintaoldal</p>
+                <p class="card__meta"><span class="swatch" aria-hidden="true"></span>Masszázsterapeuta · Mintaoldal</p>
                 <h3 class="card__name">Gordon Camenzuli</h3>
                 <p class="card__desc">Kétnyelvű (magyar és angol) oldal nyugodt, letisztult megjelenéssel, kezelésajánlóval és véleményekkel.</p>
                 <ul class="tags"><li>Kétnyelvű</li><li>Kezelésajánló</li><li>Vélemények</li></ul>
@@ -352,10 +324,11 @@
             <article class="card" data-id="csomo" data-kind="Mintaoldal" data-cat="kisallat" data-accent="#b8955a" data-url=""
               data-name="Sir Csomó Kutyakozmetika" data-host="sir-csomo-kutyakozmetika" data-sig="Kutyakozmetika">
               <button type="button" class="card__shot" aria-label="Sir Csomó Kutyakozmetika – teljes oldal megnyitása">
-                <img src="/assets/work/csomo-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Sir Csomó Kutyakozmetika mintaoldal nyitóképe">
+                <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="bar__url">sir-csomo-kutyakozmetika</span></span>
+                <span class="card__pic"><img src="/assets/work/csomo-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Sir Csomó Kutyakozmetika mintaoldal nyitóképe"></span>
               </button>
               <div class="card__body">
-                <p class="card__meta">Kutyakozmetika · Mintaoldal</p>
+                <p class="card__meta"><span class="swatch" aria-hidden="true"></span>Kutyakozmetika · Mintaoldal</p>
                 <h3 class="card__name">Sir Csomó</h3>
                 <p class="card__desc">Elegáns megjelenés animált nyitóképpel, áttekinthető szolgáltatáslistával és gyors telefonos elérhetőséggel.</p>
                 <ul class="tags"><li>Animált nyitókép</li><li>Szolgáltatások</li><li>Hívás</li></ul>
@@ -365,10 +338,11 @@
             <article class="card" data-id="rusty" data-kind="Mintaoldal" data-cat="vendeglatas" data-accent="#ff6a1a" data-url=""
               data-name="Rusty Rack Burger &amp; BBQ" data-host="rusty-rack" data-sig="Burger és BBQ">
               <button type="button" class="card__shot" aria-label="Rusty Rack – teljes oldal megnyitása">
-                <img src="/assets/work/rusty-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Rusty Rack mintaoldal nyitóképe">
+                <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="bar__url">rusty-rack</span></span>
+                <span class="card__pic"><img src="/assets/work/rusty-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Rusty Rack mintaoldal nyitóképe"></span>
               </button>
               <div class="card__body">
-                <p class="card__meta">Burger és BBQ · Mintaoldal</p>
+                <p class="card__meta"><span class="swatch" aria-hidden="true"></span>Burger és BBQ · Mintaoldal</p>
                 <h3 class="card__name">Rusty Rack</h3>
                 <p class="card__desc">Étlap közvetlenül a nyitókép után, rendezvényajánlatok és ajánlatkérés, videók a közösségi oldalakról.</p>
                 <ul class="tags"><li>Étlap</li><li>Rendezvények</li><li>Videók</li></ul>
@@ -378,10 +352,11 @@
             <article class="card" data-id="margareta" data-kind="Mintaoldal" data-cat="virag" data-accent="#e7bf3c" data-url=""
               data-name="Margaréta Virágüzlet" data-host="margareta-viraguzlet" data-sig="Virágüzlet">
               <button type="button" class="card__shot" aria-label="Margaréta Virágüzlet – teljes oldal megnyitása">
-                <img src="/assets/work/margareta-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Margaréta Virágüzlet mintaoldal nyitóképe">
+                <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="bar__url">margareta-viraguzlet</span></span>
+                <span class="card__pic"><img src="/assets/work/margareta-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A Margaréta Virágüzlet mintaoldal nyitóképe"></span>
               </button>
               <div class="card__body">
-                <p class="card__meta">Virágüzlet · Mintaoldal</p>
+                <p class="card__meta"><span class="swatch" aria-hidden="true"></span>Virágüzlet · Mintaoldal</p>
                 <h3 class="card__name">Margaréta Virágüzlet</h3>
                 <p class="card__desc">A Meggie Virágbolt oldalának felépítésére épül, saját színvilággal. Jó példa arra, hogy egy bevált szerkezet hogyan igazítható egy másik üzlethez.</p>
                 <ul class="tags"><li>Kollekció</li><li>Alkalmak</li><li>Térkép</li></ul>
@@ -394,12 +369,32 @@
 
     <!-- ============ Mit kap ============ -->
     <section class="section incl" id="mit-kap" aria-labelledby="incl-title">
-      <div class="wrap">
-        <div class="incl__head">
-          <p class="eyebrow"><span class="num">(02)</span> Mit kap</p>
-          <h2 class="h2" id="incl-title">Minden oldalban <em>benne van.</em></h2>
-          <p class="lead">Ezek nem extrák, hanem alapok – minden csomag tartalmazza őket.</p>
+      <div class="wrap incl__grid">
+        <div class="incl__side">
+          <div class="head">
+            <p class="eyebrow">Mit kap</p>
+            <h2 class="h2" id="incl-title">Minden oldalban benne van.</h2>
+            <p class="lead">Ezek nem extrák, hanem alapok – minden csomag tartalmazza őket.</p>
+          </div>
+
+          <!-- Élő példa: a nyitvatartás-jelző, ahogy egy ügyféloldalon működik (a script.js DEMO_HOURS része) -->
+          <figure class="sign" data-sign>
+            <div class="sign__plate">
+              <p class="sign__state" data-sign-state>Nyitva</p>
+              <p class="sign__until" data-sign-until>ma 18:00-ig</p>
+            </div>
+            <table class="sign__hours">
+              <caption class="sr">Példa nyitvatartás</caption>
+              <tbody data-sign-hours>
+                <tr><th scope="row">Hétfő–péntek</th><td>9:00–18:00</td></tr>
+                <tr><th scope="row">Szombat</th><td>9:00–13:00</td></tr>
+                <tr><th scope="row">Vasárnap</th><td>zárva</td></tr>
+              </tbody>
+            </table>
+            <figcaption>Élő példa: így jelzi az oldal, hogy a bolt éppen nyitva van-e. Ez itt egy minta­nyitvatartással fut.</figcaption>
+          </figure>
         </div>
+
         <ul class="incl__list">
           <li><svg aria-hidden="true"><use href="#i-pin"/></svg><h3>Hívás és útvonal</h3><p>Egy érintéssel – Google Térkép, Apple Térkép vagy Waze.</p></li>
           <li><svg aria-hidden="true"><use href="#i-clock"/></svg><h3>Élő nyitvatartás</h3><p>Az oldal mutatja, hogy éppen nyitva van-e, és meddig.</p></li>
@@ -416,9 +411,11 @@
     <!-- ============ Árak ============ -->
     <section class="section pricing" id="arak" aria-labelledby="price-title">
       <div class="wrap">
-        <div class="pricing__head">
-          <p class="eyebrow"><span class="num">(03)</span> Árak</p>
-          <h2 class="h2" id="price-title">Fix ár, <em>előre.</em></h2>
+        <div class="head head--split">
+          <div>
+            <p class="eyebrow">Árak</p>
+            <h2 class="h2" id="price-title">Fix ár, előre.</h2>
+          </div>
           <p class="lead">Az árat az első egyeztetés után rögzítjük, és az később nem változik.</p>
         </div>
 
@@ -427,9 +424,9 @@
             <header class="plan__head">
               <h3 class="plan__name">Alap</h3>
               <p class="plan__for">Igényes bemutatkozó oldal, minden fontos információval.</p>
-              <p class="plan__price"><span>70 000</span> Ft</p>
+              <p class="plan__price"><span>70 000</span> <small>Ft</small></p>
             </header>
-            <ul class="plan__list">
+            <ul class="checks plan__list">
               <li>Egyoldalas, egyedi tervezésű weboldal</li>
               <li>Telefonra és számítógépre optimalizálva</li>
               <li>Elérhetőség, térkép, hívás és útvonal</li>
@@ -441,29 +438,29 @@
           </article>
 
           <article class="plan plan--hot">
-            <p class="plan__flag">Legnépszerűbb</p>
             <header class="plan__head">
+              <p class="plan__flag">Legnépszerűbb</p>
               <h3 class="plan__name">Kirakat</h3>
               <p class="plan__for">Bővebb oldal árlistával, időpontkéréssel és egyedi nyitóképpel.</p>
-              <p class="plan__price"><span>110 000</span> Ft</p>
+              <p class="plan__price"><span>110 000</span> <small>Ft</small></p>
             </header>
-            <ul class="plan__list">
+            <ul class="checks plan__list">
               <li><strong>Az Alap csomag tartalma</strong></li>
               <li>Egyedi, interaktív nyitókép</li>
               <li>Árlista, étlap vagy kollekció</li>
               <li>Időpont- vagy ajánlatkérés</li>
               <li>Vélemények és gyakori kérdések</li>
             </ul>
-            <button type="button" class="btn btn--lime plan__btn" data-preset="kirakat">Ezt választom</button>
+            <button type="button" class="btn btn--light plan__btn" data-preset="kirakat">Ezt választom</button>
           </article>
 
           <article class="plan">
             <header class="plan__head">
               <h3 class="plan__name">Prémium</h3>
               <p class="plan__for">Online időpontfoglalással és saját kezelőfelülettel.</p>
-              <p class="plan__price"><span>150 000</span> Ft</p>
+              <p class="plan__price"><span>150 000</span> <small>Ft</small></p>
             </header>
-            <ul class="plan__list">
+            <ul class="checks plan__list">
               <li><strong>A Kirakat csomag tartalma</strong></li>
               <li>Online időpontfoglalás élő naptárral</li>
               <li>Kezelőfelület a foglalásokhoz és szabadnapokhoz</li>
@@ -476,9 +473,9 @@
         <p class="pricing__note"><strong>Rendszeres költség:</strong> csak a domain (pl. <em>vallalkozasom.hu</em>), kb. évi 3–6 ezer Ft.</p>
 
         <!-- Árkalkulátor: a tételek ára a data-price-ban, a csomagok a script.js PRESETS részében -->
-        <div class="calc" id="kalkulator" aria-labelledby="calc-title">
+        <div class="calc" id="kalkulator" role="group" aria-labelledby="calc-title">
           <div class="calc__left">
-            <h3 class="h3" id="calc-title">Egyedi <em>összeállítás.</em></h3>
+            <h3 class="h3" id="calc-title">Egyedi összeállítás</h3>
             <p class="calc__intro">Válassza ki, mire van szüksége – az ár azonnal frissül.</p>
             <fieldset class="calc__items">
               <legend class="sr">Mit szeretne az oldalon?</legend>
@@ -497,9 +494,12 @@
             <div class="total" aria-live="polite">
               <p class="total__label">Végösszeg</p>
               <p class="total__sum"><span data-total>70 000</span> <small>Ft</small></p>
-              <div class="meter" aria-hidden="true"><span class="meter__fill" data-meter></span><span class="meter__a">70e</span><span class="meter__b">150e</span></div>
+              <div class="meter" aria-hidden="true">
+                <div class="meter__track"><span class="meter__fill" data-meter></span></div>
+                <div class="meter__scale"><span>70 000</span><span>legfeljebb 150 000</span></div>
+              </div>
               <p class="total__cap" data-cap hidden>Elérte a felső határt: ezekért a tételekért <strong>legfeljebb 150&nbsp;000&nbsp;Ft</strong> a díj.</p>
-              <button type="button" class="btn btn--lime total__btn" data-calc-send>Ajánlatot kérek erre <svg aria-hidden="true"><use href="#arrow"/></svg></button>
+              <button type="button" class="btn btn--main total__btn" data-calc-send>Ajánlatot kérek erre <svg aria-hidden="true"><use href="#arrow"/></svg></button>
               <p class="total__small">Webshophoz vagy egyedi rendszerhez külön ajánlatot adok.</p>
             </div>
           </div>
@@ -510,45 +510,38 @@
     <!-- ============ Folyamat ============ -->
     <section class="section process" id="folyamat" aria-labelledby="proc-title">
       <div class="wrap">
-        <div class="process__head">
-          <p class="eyebrow"><span class="num">(04)</span> Folyamat</p>
-          <h2 class="h2" id="proc-title">Hogyan <em>dolgozom.</em></h2>
+        <div class="head">
+          <p class="eyebrow">Folyamat</p>
+          <h2 class="h2" id="proc-title">Hogyan dolgozom</h2>
         </div>
         <ol class="steps">
           <li class="step">
-            <span class="step__n">01</span>
             <h3>Egyeztetés</h3>
             <p>Rövid beszélgetés telefonon vagy személyesen a vállalkozásáról és az elképzeléseiről. Díjmentes, és nem kötelez semmire.</p>
           </li>
           <li class="step">
-            <span class="step__n">02</span>
             <h3>Első változat</h3>
             <p>Elkészítem az oldal első változatát, amelyet egy linken a saját telefonján is megnézhet.</p>
           </li>
           <li class="step">
-            <span class="step__n">03</span>
             <h3>Véglegesítés</h3>
             <p>Az Ön visszajelzései alapján véglegesítjük a szövegeket, a színeket és az árakat.</p>
           </li>
           <li class="step">
-            <span class="step__n">04</span>
             <h3>Átadás</h3>
             <p>Az oldalt közzéteszem a saját domainjén, összekötöm a Google Cégprofiljával, és rövid útmutatót adok hozzá.</p>
           </li>
         </ol>
-        <div class="promise">
-          <svg class="promise__mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#0d0d0f"/><path d="M9.5 13l5 15 5.5-12 5.5 12 5-15" fill="none" stroke="#cfff45" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <p><strong>Kockázatmentes kezdés:</strong> az első változatot díjmentesen elkészítem. Ha nem tetszik, nem tartozik semmivel.</p>
-        </div>
+        <p class="promise"><strong>Kockázatmentes kezdés:</strong> az első változatot díjmentesen elkészítem. Ha nem tetszik, nem tartozik semmivel.</p>
       </div>
     </section>
 
     <!-- ============ Kérdések ============ -->
     <section class="section faq" id="kerdesek" aria-labelledby="faq-title">
       <div class="wrap faq__grid">
-        <div class="faq__head">
-          <p class="eyebrow"><span class="num">(05)</span> Kérdések</p>
-          <h2 class="h2" id="faq-title">Gyakori <em>kérdések.</em></h2>
+        <div class="head">
+          <p class="eyebrow">Kérdések</p>
+          <h2 class="h2" id="faq-title">Gyakori kérdések</h2>
           <p class="lead">Ha nem találja a választ, írjon nyugodtan.</p>
         </div>
         <div class="faq__list">
@@ -591,13 +584,13 @@
     <!-- ============ Kapcsolat ============ -->
     <section class="section contact" id="kapcsolat" aria-labelledby="contact-title">
       <div class="wrap contact__grid">
-        <div class="contact__head">
-          <p class="eyebrow"><span class="num">(06)</span> Kapcsolat</p>
-          <h2 class="h2" id="contact-title">Kérjen <em>ajánlatot.</em></h2>
+        <div class="head">
+          <p class="eyebrow">Kapcsolat</p>
+          <h2 class="h2" id="contact-title">Kérjen ajánlatot.</h2>
           <p class="lead">Írja meg röviden, mivel foglalkozik és mire van szüksége. 24 órán belül válaszolok.</p>
           <ul class="direct">
-            <li><a class="direct__big" href="mailto:siposhunor1112@gmail.com" data-email>siposhunor1112@gmail.com</a></li>
-            <li data-phone-row hidden><a class="direct__big" href="#" data-phone></a></li>
+            <li><span class="direct__label">E-mail</span><a class="direct__big" href="mailto:siposhunor1112@gmail.com" data-email>siposhunor1112@gmail.com</a></li>
+            <li data-phone-row hidden><span class="direct__label">Telefon</span><a class="direct__big" href="#" data-phone></a></li>
           </ul>
         </div>
 
@@ -638,10 +631,10 @@
             <label for="f-msg">Üzenet</label>
             <textarea id="f-msg" name="msg" rows="4" placeholder="Röviden a vállalkozásáról és az elképzeléseiről"></textarea>
           </div>
-          <p class="composer__summary" data-summary hidden></p>
+          <p class="composer__summary field--wide" data-summary hidden></p>
           <div class="composer__actions field--wide">
-            <button type="submit" class="btn btn--lime">E-mail megírása <svg aria-hidden="true"><use href="#arrow"/></svg></button>
-            <button type="button" class="btn btn--ghost" data-copy>Szöveg másolása</button>
+            <button type="submit" class="btn btn--main">E-mail megírása <svg aria-hidden="true"><use href="#arrow"/></svg></button>
+            <button type="button" class="btn btn--line" data-copy>Szöveg másolása</button>
             <span class="composer__ok" data-copied role="status"></span>
           </div>
           <p class="composer__note field--wide">Az űrlap nem küld és nem tárol adatot: a gomb megnyitja a levelezőprogramját egy előre kitöltött üzenettel.</p>
@@ -652,19 +645,18 @@
 
   <!-- ============ Lábléc ============ -->
   <footer class="foot">
-    <div class="wrap">
+    <div class="wrap foot__inner">
       <div class="foot__row">
         <a class="logo" href="#top">
           <svg class="logo__mark" aria-hidden="true"><use href="#mark"/></svg>
-          <span class="logo__word">Webzone Stúdió<span class="logo__sub">webkészítés</span></span>
+          <span class="logo__word">Webzone Stúdió</span>
         </a>
         <nav class="foot__nav" aria-label="Lábléc menü">
           <a href="#munkak">Munkák</a><a href="#arak">Árak</a><a href="#folyamat">Folyamat</a><a href="#kerdesek">Kérdések</a><a href="#kapcsolat">Kapcsolat</a>
         </nav>
       </div>
-      <p class="foot__giant" aria-hidden="true">Webzo</p>
       <div class="foot__row foot__small">
-        <p>© <span data-year>2026</span> Webzone Stúdió · Webkészítés, Budapest</p>
+        <p>© <span data-year>2026</span> Webzone Stúdió · Webkészítés, Budapest · webzo.hu</p>
         <p>Követőkódok és sütik nélkül.</p>
       </div>
       <!-- Impresszum: a script.js LEGAL részéből töltődik ki; amíg nincs kitöltve, nem jelenik meg -->
@@ -678,15 +670,15 @@
   <!-- Telefonon alul: mindig kéznél az ajánlatkérés -->
   <nav class="dock" data-dock aria-label="Gyors elérés">
     <a class="dock__btn" href="#munkak">Munkák</a>
-    <a class="dock__btn dock__btn--call" href="#" data-phone-dock hidden>Hívás</a>
-    <a class="dock__btn dock__btn--lime" href="#kapcsolat">Ajánlatot kérek</a>
+    <a class="dock__btn" href="#" data-phone-dock hidden>Hívás</a>
+    <a class="dock__btn dock__btn--main" href="#kapcsolat">Ajánlatot kérek</a>
   </nav>
 
   <!-- Munka-nézegető -->
   <dialog class="viewer" data-viewer aria-labelledby="viewer-title">
     <div class="viewer__inner">
       <header class="viewer__head">
-        <div>
+        <div class="viewer__titles">
           <p class="viewer__meta" data-v-meta></p>
           <h2 class="viewer__title" id="viewer-title" data-v-title></h2>
         </div>
@@ -698,7 +690,7 @@
       </header>
       <div class="viewer__body" data-v-body data-view="phone">
         <div class="browser viewer__desk">
-          <div class="browser__bar"><i></i><i></i><i></i><span class="browser__url" data-v-url></span></div>
+          <div class="bar"><i></i><i></i><i></i><span class="bar__url" data-v-url></span></div>
           <div class="browser__scroll" role="region" tabindex="0" aria-label="Az oldal számítógépen – görgethető"><img data-v-desk alt="" width="960" height="4800"></div>
         </div>
         <div class="phone viewer__phone">
@@ -708,10 +700,10 @@
         <aside class="viewer__info">
           <p class="viewer__desc" data-v-desc></p>
           <ul class="tags" data-v-tags></ul>
-          <a class="btn btn--lime viewer__live" data-v-live href="#" target="_blank" rel="noopener" hidden>Élő oldal <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+          <a class="btn btn--main viewer__live" data-v-live href="#" target="_blank" rel="noopener" hidden>Élő oldal <svg aria-hidden="true"><use href="#arrow"/></svg></a>
           <p class="viewer__hint">A képek görgethetők – ez a teljes oldal.</p>
           <div class="viewer__nav">
-            <button type="button" class="round" data-v-prev aria-label="Előző"><svg aria-hidden="true"><use href="#arrow"/></svg></button>
+            <button type="button" class="round round--flip" data-v-prev aria-label="Előző"><svg aria-hidden="true"><use href="#arrow"/></svg></button>
             <button type="button" class="round" data-v-next aria-label="Következő"><svg aria-hidden="true"><use href="#arrow"/></svg></button>
           </div>
         </aside>
@@ -721,25 +713,22 @@
 
   <!-- Ikonok -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <symbol id="mark" viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#cfff45"/><path d="M9.5 13l5 15 5.5-12 5.5 12 5-15" fill="none" stroke="#0d0d0f" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <!-- Logó: kobaltkék zománctábla, belső fehér szegéllyel, rajta a „W” -->
+    <symbol id="mark" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#2448d8"/><rect x="3.2" y="3.2" width="33.6" height="33.6" rx="6.4" fill="none" stroke="#fff" stroke-width="1.3"/><path d="M10.5 14.5l4.4 12 5.1-10 5.1 10 4.4-12" fill="none" stroke="#fff" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
     <symbol id="play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
     <symbol id="close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></g></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 21.5s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
-    <symbol id="i-pen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 20l1-4.5L15.5 5a2.1 2.1 0 0 1 3 3L8 18.5z"/><path d="M13.5 7l3 3"/></g></symbol>
-    <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></g></symbol>
-    <symbol id="i-share" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 15l5-4 4 3 3-2 6 4"/><circle cx="16" cy="9" r="1.4"/></g></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.8l7.5 3v6c0 4.6-3.2 8-7.5 9.4-4.3-1.4-7.5-4.8-7.5-9.4v-6z"/><path d="M8.8 12l2.2 2.2 4.2-4.4"/></g></symbol>
-    <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></g></symbol>
-    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.5 2.5L5 13.5h6l-1 8 8.5-11h-6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
-    <symbol id="i-hand" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="4.5" r="2"/><path d="M5 8.5l7 1.5 7-1.5M12 10v5l-3 6.5M12 15l3 6.5"/></g></symbol>
-    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18.5a4.5 4.5 0 0 1-.6-9A6 6 0 0 1 18 9.8a4.4 4.4 0 0 1-.5 8.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
-    <symbol id="i-key" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="15" r="4.5"/><path d="M11.2 11.8L20 3M16.5 6.5l2.5 2.5M14 9l2 2"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 21.5s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 20l1-4.5L15.5 5a2.1 2.1 0 0 1 3 3L8 18.5z"/><path d="M13.5 7l3 3"/></g></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.8l7.5 3v6c0 4.6-3.2 8-7.5 9.4-4.3-1.4-7.5-4.8-7.5-9.4v-6z"/><path d="M8.8 12l2.2 2.2 4.2-4.4"/></g></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></g></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18.5a4.5 4.5 0 0 1-.6-9A6 6 0 0 1 18 9.8a4.4 4.4 0 0 1-.5 8.7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="15" r="4.5"/><path d="M11.2 11.8L20 3M16.5 6.5l2.5 2.5M14 9l2 2"/></g></symbol>
   </svg>
 
-  <script src="/script.js?v=5" defer></script>
+  <script src="/script.js?v=6" defer></script>
 </body>
 </html>

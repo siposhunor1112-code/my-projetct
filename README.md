@@ -49,13 +49,17 @@ ugyanúgy, mint az ügyféloldalak.
 
 ## Megjelenés
 
-- Tinta-fekete és csont színű szekciók váltakoznak, **egyetlen kiemelőszín: neon-lime** (`--lime`) – minden ügyféloldaltól eltér,
-  így a referenciák színei nem ütik egymást, és a lime mindig a teendőt jelzi (gombok, kiemelések)
-- Betűk saját tárhelyről (SIL Open Font License): **Archivo** széles, vastag változata (címek), **Instrument Serif** dőlt
-  (a kiemelt szavak, pl. „*ügyfelet hoz.*”), **Geist** (szöveg) és **Geist Mono** (címkék, számok).
-  Az Archivo le van karcsúsítva (csak a használt vastagságok és a magyar ékezetek): 176 KB helyett 50 KB
-- Név: **Webzone Stúdió**, rövid változata **Webzo** (domain, nagy lábléc-felirat). Logó: lime négyzetben egy vonalas „W”.
-  A jel az `index.html` alján (`#mark`), a `404.html`-ben és az `assets/favicon.svg`-ben van
+- Koncepció: **kirakat és cégtábla**. Világos, hűvös papírfehér alap, tintakék szöveg, és **egyetlen kiemelőszín:
+  zománctábla-kobaltkék** (`--cobalt`) – a gombok, a kiemelt csomag és a „Webzone Stúdió” oszlop is ilyen. A kék minden
+  ügyféloldal színétől eltér, így a referenciák színei nem ütik egymást
+- A merész pont egy helyen van: a nyitóképen az „**ügyfelet hoz.**” egy kobaltkék cégtáblán áll (belső fehér szegély, két
+  csavar, kicsit megdöntve). Ugyanez a tábla a logó, a szekciócímkék apró jele és a 404-es oldal száma is
+- **Sötét mód**: ha a látogató telefonja/gépe sötét módban van, az oldal is sötét („éjszakai utca”). Minden szín
+  a `styles.css` elején lévő `:root` változókban van, a sötét változat közvetlenül alatta
+- Betűk saját tárhelyről (SIL Open Font License): **Bricolage Grotesque** (címek, keskeny–normál szélességgel) és
+  **Figtree** (szöveg). Mindkettő le van karcsúsítva a használt vastagságokra és a magyar ékezetekre: összesen kb. 80 KB
+- Név: **Webzone Stúdió**, rövid változata **Webzo** (domain). Logó: kobaltkék zománctábla, rajta vonalas „W”.
+  A jel az `index.html` alján (`#mark`), a `404.html`-ben, az `assets/favicon.svg`-ben és a `tools/images.js`-ben van
 - Megszólítás: magázó, egyszerű és szakmai hangnem, szakszavak nélkül
 
 ## Szekciók – és miért ezek
@@ -68,27 +72,28 @@ Az oldal egyetlen kérdésre felel minél gyorsabban: *„Megéri-e nekem, hogy 
   „Mintaoldal”), a telefonban az oldal magától legörget, a háttér fénye felveszi az adott oldal színét,
   aztán jön a következő. Ujjal lapozható, egérrel megdől, rákattintva (vagy Enterrel) megnyílik a teljes oldal, és egy gombbal
   megállítható. Nem állítás, hanem bizonyíték.
-- **Szalag** – a szolgáltatás fő jellemzői úsznak (egyedi tervezés, fix ár, nincs havidíj…)
-- **(00) Szemlélet** – a vevő telefonról, néhány másodperc alatt dönt, és négy alapelv. Alatta **összehasonlítás**:
+- **Szemlélet** – a vevő telefonról, néhány másodperc alatt dönt, és négy alapelv. Alatta **összehasonlítás**:
   sablonos weboldal-építő vs. ügynökség vs. te – a valódi alternatívák, amiken a vevő gondolkodik. Telefonon kártyákká alakul
-- **(01) Munkák** – elöl, kiemelve az **átadott munka** (Meggie Virágbolt): nagy kép, leírás, mit tartalmaz. Alatta a
+- **Munkák** – elöl, kiemelve az **átadott munka** (Meggie Virágbolt): nagy kép, leírás, mit tartalmaz. Alatta a
   **mintaoldalak** szakmák szerint szűrhetően, egyértelmű „Mintaoldal” címkével. Egérrel fölé állva a kártyán végiggörget a
-  teljes oldal; kattintásra a **nézegető** mutatja telefonon és számítógépen is (telefonon lapokkal vált)
-- **(02) Mit kap** – 8 dolog, ami minden oldalban benne van (élő nyitvatartás, hívás/útvonal, szövegírás, nincs sütisáv…).
-  Ezek az ügyféloldalaid valódi tudása – a READMEékből gyűjtöttem össze
-- **(03) Árak** – három csomag (Alap 70e, **Kirakat 110e – legnépszerűbb**, Prémium 150e), átfutási idő és módosítási körök nélkül. A középső kiemelése a döntést
+  teljes oldal; a kártyák tetején böngészősáv a címmel, a címke előtt az oldal saját színe; kattintásra a **nézegető** mutatja telefonon és számítógépen is (telefonon lapokkal vált)
+- **Mit kap** – 8 dolog, ami minden oldalban benne van (élő nyitvatartás, hívás/útvonal, szövegírás, nincs sütisáv…).
+  Ezek az ügyféloldalaid valódi tudása – a READMEékből gyűjtöttem össze. Mellette egy **élő ajtótábla**: egy
+  mintanyitvatartással (H–P 9–18, Szo 9–13) valós időben, budapesti idő szerint mutatja, hogy „Nyitva” vagy „Zárva”, és meddig /
+  mikor nyit – ugyanúgy, ahogy az ügyféloldalakon működik. A mintaidőpontok a `script.js` `DEMO_HOURS` részében vannak
+- **Árak** – három csomag (Alap 70e, **Kirakat 110e – legnépszerűbb**, Prémium 150e), átfutási idő és módosítási körök nélkül. A középső kiemelése a döntést
   könnyíti. Alatta **árkalkulátor**: a tételek kipipálásával élőben számolja a végösszeget, 150 000 Ft-nál megáll
   („ennél többet nem kérek”). A „Ezt kérem” / „Ezzel kérek ajánlatot” gomb kitölti az ajánlatkérőt
-- **(04) Folyamat** – négy lépés, és a kockázatmentes kezdés („az első változat díjmentes”)
-- **(05) Kérdések** – a kilenc leggyakoribb ellenvetés megválaszolva (havidíj, mi kell tőlem, kié az oldal, Google, webshop…)
-- **(06) Kapcsolat** – ajánlatkérő, ami a látogató **saját levelezőjében** nyit meg egy előre megírt levelet (vállalkozás neve,
+- **Folyamat** – négy számozott lépés (ez valódi sorrend), és a kockázatmentes kezdés („az első változat díjmentes”)
+- **Kérdések** – a nyolc leggyakoribb ellenvetés megválaszolva (havidíj, mi kell tőlem, kié az oldal, Google, webshop…)
+- **Kapcsolat** – ajánlatkérő, ami a látogató **saját levelezőjében** nyit meg egy előre megírt levelet (vállalkozás neve,
   szakma, csomag vagy a kalkulátor összeállítása, meglévő oldal, üzenet). Van „Szöveg másolása” gomb is (Messengerre).
   Az oldal semmit nem küld és nem tárol – ezért nem kell adatkezelési tájékoztató és sütisáv
-- **Lábléc** – óriási név, amin átsuhan a lime fény; alatta a lenyitható impresszum (ha ki van töltve)
+- **Lábléc** – logó, menü, és a lenyitható impresszum (ha ki van töltve)
 - Telefonon alul megjelenik a **Munkák / (Hívás) / Ajánlatot kérek** sáv – de csak a nyitókép gombjai után, és a Kapcsolatnál eltűnik
 
-Telefonra optimalizálva 320 px-től: nincs vízszintes görgetés, minden gomb legalább 44 px, telefonon nem úsznak be a szövegek
-(azonnal látszanak), a nézegető teljes képernyős. Aki kikapcsolta az animációkat (`prefers-reduced-motion`), annak minden áll.
+Telefonra optimalizálva 320 px-től: nincs vízszintes görgetés, minden gomb legalább 44 px, a szövegek nem úsznak be
+(betöltéskor azonnal látszanak), a nézegető teljes képernyős. Aki kikapcsolta az animációkat (`prefers-reduced-motion`), annak minden áll.
 
 ## Tartalom szerkesztése
 
@@ -99,7 +104,7 @@ Telefonra optimalizálva 320 px-től: nincs vízszintes görgetés, minden gomb 
 - **Új munka**: másolj le egy `<article class="card">`-ot, írd át az adatait (`data-id`, `data-cat`, `data-accent` = a színe,
   `data-name`, `data-host`, `data-sig` = egy rövid mondat a nyitóképre), tegyél be három képet az `assets/work/`-be
   (`<id>-hero.webp`, `<id>-long.webp`, `<id>-mobile.webp`) – a nyitókép bemutatója és a nézegető magától felveszi
-- A `styles.css` és a `script.js` hivatkozásában verziószám van (`?v=1`): módosítás után növeld, hogy a telefonok biztosan
+- A `styles.css` és a `script.js` hivatkozásában verziószám van (most `?v=6`): módosítás után növeld, hogy a telefonok biztosan
   az új változatot töltsék le
 
 ## Referencia-képek frissítése

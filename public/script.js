@@ -28,6 +28,8 @@ const PRESETS = {
   kirakat: ["hero", "menu", "request", "reviews"],
   premium: ["hero", "menu", "request", "reviews", "booking"],
 };
+// A „Mit kap” rész élő ajtótáblájának mintanyitvatartása (0 = vasárnap … 6 = szombat), budapesti idő szerint
+const DEMO_HOURS = { 1: ["9:00", "18:00"], 2: ["9:00", "18:00"], 3: ["9:00", "18:00"], 4: ["9:00", "18:00"], 5: ["9:00", "18:00"], 6: ["9:00", "13:00"], 0: null };
 const PLAN_NAMES = { alap: "Alap – 70 000 Ft", kirakat: "Kirakat – 110 000 Ft", premium: "Prémium – 150 000 Ft" };
 const BASE = 70000;
 const CAP = 150000; // ennél többet a kalkulátor tételeiért nem számolunk
@@ -444,16 +446,39 @@ const calc = (() => {
   });
 })();
 
-// ---------- Megjelenés görgetésre (csak nagy képernyőn, a CSS dönti el) ----------
+// ---------- Élő ajtótábla (minta): nyitva van-e most a példabolt ----------
 (() => {
-  const groups = [".pillars li", ".grid .card", ".feature", ".incl__list li", ".plan", ".step", ".faq__list details"];
-  const singles = $$(".section .eyebrow, .section .h2, .section .lead, .versus, .filters, .demos__head, .calc, .promise, .composer, .direct");
-  const els = [...singles];
-  groups.forEach((g) => $$(g).forEach((el, n) => { el.style.setProperty("--d", `${(n % 4) * 0.07}s`); els.push(el); }));
-  els.forEach((el) => el.classList.add("rv"));
-  const io = new IntersectionObserver((entries) => entries.forEach((en) => {
-    if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
-  }), { rootMargin: "0px 0px -8% 0px" });
-  els.forEach((el) => io.observe(el));
-})();
+  const sign = $("[data-sign]");
+  if (!sign) return;
+  const DAY_ON = ["vasárnap", "hétfőn", "kedden", "szerdán", "csütörtökön", "pénteken", "szombaton"];
+  const mins = (hm) => { const [h, m] = hm.split(":").map(Number); return h * 60 + m; };
+  const rows = $$("[data-sign-hours] tr"); // H–P, Szo, V
+  const rowOf = (d) => (d === 0 ? rows[2] : d === 6 ? rows[1] : rows[0]);
 
+  const tick = () => {
+    // a mostani idő Budapesten, bárhonnan nézik is az oldalt
+    const p = Object.fromEntries(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Budapest", weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23" })
+      .formatToParts(new Date()).map((x) => [x.type, x.value]));
+    const day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(p.weekday);
+    const now = Number(p.hour) * 60 + Number(p.minute);
+    const today = DEMO_HOURS[day];
+    let open = false, text;
+    if (today && now >= mins(today[0]) && now < mins(today[1])) {
+      open = true;
+      text = `ma ${today[1]}-ig`;
+    } else if (today && now < mins(today[0])) {
+      text = `ma ${today[0]}-kor nyit`;
+    } else {
+      for (let k = 1; k <= 7; k++) {
+        const d = (day + k) % 7, h = DEMO_HOURS[d];
+        if (h) { text = `${k === 1 ? "holnap" : DAY_ON[d]} ${h[0]}-kor nyit`; break; }
+      }
+    }
+    sign.dataset.state = open ? "open" : "closed";
+    $("[data-sign-state]").textContent = open ? "Nyitva" : "Zárva";
+    $("[data-sign-until]").textContent = text;
+    rows.forEach((r) => r.classList.toggle("is-today", r === rowOf(day)));
+  };
+  tick();
+  setInterval(tick, 30000);
+})();
