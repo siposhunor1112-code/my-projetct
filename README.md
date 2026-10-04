@@ -51,7 +51,8 @@ ugyanúgy, mint az ügyféloldalak.
 
 - Irány: **prémium, letisztult termékoldal** (az Apple „Pro” oldalainak mintájára). A nyitókép és a munkák **fekete
   színpadon** állnak, a nagy címek **ezüstös átmenettel**; utána világos, levegős szekciók (fehér és `#f5f5f7`), a végén
-  újra fekete ajánlatkérő. Kék „pirula” gombok, 30 px-es lekerekítésű csempék. A színt a munkák képei adják
+  újra fekete ajánlatkérő. A szekciók nem éles vonallal váltanak, hanem **lágy átmenettel olvadnak egymásba**
+  (a `styles.css` `.fade` része; a színpárokat a szekciók azonosítója adja meg). Kék „pirula” gombok, 30 px-es lekerekítésű csempék. A színt a munkák képei adják
 - **Mozgás**, visszafogottan: betöltéskor beúszik a nyitókép; a laptop mögötti halvány fény felveszi a bemutatott oldal
   színét; görgetésre a blokkok finoman beúsznak (csak ahol a böngésző tudja – a tartalom enélkül is látszik). Aki
   kikapcsolta az animációkat, annak minden áll
@@ -100,7 +101,7 @@ magasak, a nézegető teljes képernyős.
 - **Új munka**: másolj le egy `<article class="card">`-ot (a mintaoldalak galériájában), írd át az adatait (`data-id`, `data-cat`, `data-accent` = a színe,
   `data-name`, `data-host`, `data-sig` = egy rövid mondat a nyitóképre), tegyél be három képet az `assets/work/`-be
   (`<id>-hero.webp`, `<id>-long.webp`, `<id>-mobile.webp`) – a nyitókép bemutatója és a nézegető magától felveszi
-- A `styles.css` és a `script.js` hivatkozásában verziószám van (most `?v=9`): módosítás után növeld, hogy a telefonok biztosan
+- A `styles.css` és a `script.js` hivatkozásában verziószám van (most `?v=10`): módosítás után növeld, hogy a telefonok biztosan
   az új változatot töltsék le
 
 ## Referencia-képek frissítése

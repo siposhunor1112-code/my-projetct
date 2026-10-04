@@ -257,8 +257,33 @@ button { cursor: pointer; }
 .stats small { font-size: var(--t-17); color: var(--night-text-2); }
 
 /* ---------- Szekciók ---------- */
-.section { padding-block: clamp(96px, 12vw, 168px); }
+.section { --pad: clamp(96px, 12vw, 168px); padding-block: var(--pad); }
 .section--gray { background: var(--bg-2); }
+
+/* Egymásba olvadó szekciók: minden szekció alja lágy (ease-in-out) átmenettel
+   a következő szekció színébe vált, így nincs éles határ fekete, szürke és fehér között */
+.fade {
+  --fade: 180px;
+  background: linear-gradient(to bottom,
+    var(--c1) calc(100% - var(--fade)),
+    color-mix(in oklab, var(--c1), var(--c2) 6%) calc(100% - var(--fade) * .85),
+    color-mix(in oklab, var(--c1), var(--c2) 22%) calc(100% - var(--fade) * .7),
+    color-mix(in oklab, var(--c1), var(--c2) 43%) calc(100% - var(--fade) * .55),
+    color-mix(in oklab, var(--c1), var(--c2) 65%) calc(100% - var(--fade) * .4),
+    color-mix(in oklab, var(--c1), var(--c2) 84%) calc(100% - var(--fade) * .25),
+    color-mix(in oklab, var(--c1), var(--c2) 97%) calc(100% - var(--fade) * .1),
+    var(--c2) 100%);
+}
+/* sötét és világos között hosszabb az átmenet; a tartalom fölötte ér véget */
+.fade--long { --fade: clamp(260px, 32vw, 460px); padding-bottom: calc(var(--fade) + clamp(24px, 4vw, 56px)); }
+.fade--long + .section { padding-top: clamp(40px, 5vw, 72px); }
+
+#munkak    { --c1: var(--night); --c2: var(--bg-2); }
+#mit-kap   { --c1: var(--bg-2);  --c2: var(--bg); }
+#arak      { --c1: var(--bg);    --c2: var(--bg-2); }
+#folyamat  { --c1: var(--bg-2);  --c2: var(--bg); }
+#kerdesek  { --c1: var(--bg);    --c2: var(--night); }
+#kapcsolat { --c1: var(--night); --c2: var(--bg-2); }
 
 /* Görgetésre finom beúszás (csak ahol a böngésző tudja; a tartalom enélkül is látszik) */
 @supports (animation-timeline: view()) {
