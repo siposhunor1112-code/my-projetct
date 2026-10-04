@@ -294,38 +294,6 @@ WORKS.forEach((w) => w.el.style.setProperty("--accent", w.accent));
   sync();
 })();
 
-// ---------- Szemlélet: a helyben maradó telefon képernyője lépésenként vált ----------
-(() => {
-  const steps = $$("[data-scene]"), pic = $("[data-scene-img]");
-  if (!steps.length || !pic) return;
-  const phone = pic.closest(".phone");
-  let current = steps[0].dataset.scene, swapT = 0;
-  const swap = (id) => {
-    if (id === current) return;
-    current = id;
-    clearTimeout(swapT);
-    phone.classList.add("is-swapping");
-    swapT = setTimeout(async () => {
-      await preload(img(id, "mobile"));
-      if (current !== id) return;
-      pic.src = img(id, "mobile");
-      phone.classList.remove("is-swapping");
-    }, reduce ? 0 : 280);
-  };
-  // a lépések képeit előre betöltjük, amikor a rész közelébe ér a látogató
-  new IntersectionObserver(([en], obs) => {
-    if (!en.isIntersecting) return;
-    steps.forEach((st) => preload(img(st.dataset.scene, "mobile")));
-    obs.disconnect();
-  }, { rootMargin: "600px 0px" }).observe($(".scene"));
-  const io = new IntersectionObserver((entries) => entries.forEach((en) => {
-    if (!en.isIntersecting) return;
-    steps.forEach((st) => st.classList.toggle("is-on", st === en.target));
-    swap(en.target.dataset.scene);
-  }), { rootMargin: "-45% 0px -45% 0px" });
-  steps.forEach((st) => io.observe(st));
-})();
-
 // ---------- Munka-nézegető ----------
 const viewer = $("[data-viewer]");
 let vIndex = 0;

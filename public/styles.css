@@ -2,8 +2,7 @@
    Webzone Stúdió (Webzo) – megjelenés
    Irány: prémium, letisztult termékoldal. A nyitókép és a munkák fekete „színpadon” állnak,
    ezüstös átmenetű címekkel; utána világos, levegős szekciók, a végén újra fekete ajánlatkérő.
-   Görgetésre finoman beúsznak a blokkok, a „Szemlélet” résznél a telefon helyben marad,
-   és a képernyője lépésenként vált.
+   Görgetésre finoman beúsznak a blokkok.
    Betű: iPhone-on és Macen a rendszer saját betűje (SF), máshol az Inter.
    ========================================================================= */
 
@@ -332,22 +331,6 @@ button { cursor: pointer; }
 .tags li + li::before { content: "·"; margin: 0 6px; }
 .rail-ctrl { display: flex; justify-content: flex-end; gap: 12px; }
 
-/* ---------- Szemlélet: helyben maradó telefon ---------- */
-.scene { padding-bottom: clamp(48px, 6vw, 96px); }
-.scene__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
-.scene__visual { position: sticky; top: calc(var(--top-h) + 5vh); display: grid; justify-items: center; }
-.scene__phone { width: min(320px, calc((100dvh - var(--top-h) - 12vh) / 2.2)); }
-.scene__phone img { transition: opacity .35s ease; }
-.scene__phone.is-swapping img { opacity: 0; }
-.scene__head { display: grid; gap: 14px; padding-top: 4vh; }
-.scene__steps { margin-top: 12vh; }
-.scene__step { min-height: 58vh; display: grid; align-content: center; gap: 12px; padding-block: 24px; }
-.scene__step:last-child { min-height: 46vh; }
-.scene__step h3 { font: 600 var(--t-h3)/1.1 var(--font-display); letter-spacing: -.03em; color: #b9b9be; transition: color .5s var(--ease); }
-.scene__step p { font-size: var(--t-21); line-height: 1.38; color: #a1a1a6; max-width: 30ch; transition: color .5s var(--ease); }
-.scene__step.is-on h3 { color: var(--text); }
-.scene__step.is-on p { color: var(--text-2); }
-
 /* ---------- Mit kap ---------- */
 .spot {
   display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); align-items: center; gap: clamp(32px, 5vw, 72px);
@@ -603,9 +586,6 @@ button { cursor: pointer; }
   .calc { grid-template-columns: minmax(0, 1fr); }
   .total { position: static; }
 
-  /* Szemlélet: a telefon fent marad kicsiben, a szöveg mellette fut */
-  .scene__grid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 24px; }
-
   /* Telefonon a nézegető lapokkal vált telefon és számítógép között */
   .viewer { width: 100vw; height: 100dvh; border-radius: 0; }
   .viewer__head { padding: calc(12px + env(safe-area-inset-top, 0px)) 14px 12px 20px; gap: 12px; flex-wrap: wrap; }
@@ -652,13 +632,6 @@ button { cursor: pointer; }
   .feature__list { grid-template-columns: minmax(0, 1fr); }
   .rail { grid-auto-columns: 82vw; gap: 14px; }
 
-  .scene__grid { grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: 18px; }
-  .scene__visual { top: calc(var(--top-h) + 16px); }
-  .scene__phone { width: 100%; }
-  .scene__steps { margin-top: 8vh; }
-  .scene__step { min-height: 52vh; }
-  .scene__step h3 { font-size: 1.5rem; }
-  .scene__step p { font-size: var(--t-17); }
 
   .icons { gap: 36px 20px; }
   .steps { grid-template-columns: minmax(0, 1fr); }
@@ -691,6 +664,6 @@ button { cursor: pointer; }
 
 /* Nyomtatás: csak az árak és az elérhetőség */
 @media print {
-  .top, .menu, .dock, .hero, .work, .scene, .viewer, .foot { display: none !important; }
+  .top, .menu, .dock, .hero, .work, .viewer, .foot { display: none !important; }
   body, .section { background: #fff !important; color: #000 !important; }
 }

@@ -53,8 +53,8 @@ ugyanúgy, mint az ügyféloldalak.
   színpadon** állnak, a nagy címek **ezüstös átmenettel**; utána világos, levegős szekciók (fehér és `#f5f5f7`), a végén
   újra fekete ajánlatkérő. Kék „pirula” gombok, 30 px-es lekerekítésű csempék. A színt a munkák képei adják
 - **Mozgás**, visszafogottan: betöltéskor beúszik a nyitókép; a laptop mögötti halvány fény felveszi a bemutatott oldal
-  színét; görgetésre a blokkok finoman beúsznak (csak ahol a böngésző tudja – a tartalom enélkül is látszik); a
-  „Szemlélet” résznél a telefon helyben marad, és a képernyője lépésenként vált. Aki kikapcsolta az animációkat, annak minden áll
+  színét; görgetésre a blokkok finoman beúsznak (csak ahol a böngésző tudja – a tartalom enélkül is látszik). Aki
+  kikapcsolta az animációkat, annak minden áll
 - **Betű:** iPhone-on és Macen a rendszer saját betűje (SF Pro) jelenik meg, minden más eszközön a hozzá legközelebb álló
   **Inter** (saját tárhelyről, SIL Open Font License, a használt vastagságokra és a magyar ékezetekre karcsúsítva: 42 KB)
 - Minden szín a `styles.css` elején, a `:root` változókban van (világos felületek és a „sötét színpad” külön csoportban)
@@ -73,8 +73,6 @@ Az oldal egyetlen kérdésre felel minél gyorsabban: *„Megéri-e nekem, hogy 
 - **Munkák** (fekete) – nagy csempén az **átadott munka** (Meggie Virágbolt). Alatta a **mintaoldalak** vízszintes
   galériában (ujjal húzható, nyilakkal lapozható, kártyánként megáll), szakmák szerint szűrhetően. Egérrel fölé állva a
   kártyán végiggörget a teljes oldal; kattintásra a **nézegető** mutatja telefonon és számítógépen is
-- **Szemlélet** – helyben maradó telefon, mellette négy alapelv (áttekinthető, egy érintéssel hívható, gyors, egyedi);
-  görgetés közben a telefon képernyője mindig az adott elvhez illő munkát mutatja
 - **Mit kap** – fekete kiemelőcsempe **élő nyitvatartás-példával** (mintanyitvatartás: H–P 9–18, Szo 9–13, budapesti idő
   szerint mutatja, hogy „Nyitva” vagy „Zárva”, és meddig / mikor nyit – a `script.js` `DEMO_HOURS` részében), alatta
   ikonrács: 8 dolog, ami minden oldalban benne van
@@ -102,7 +100,7 @@ magasak, a nézegető teljes képernyős.
 - **Új munka**: másolj le egy `<article class="card">`-ot (a mintaoldalak galériájában), írd át az adatait (`data-id`, `data-cat`, `data-accent` = a színe,
   `data-name`, `data-host`, `data-sig` = egy rövid mondat a nyitóképre), tegyél be három képet az `assets/work/`-be
   (`<id>-hero.webp`, `<id>-long.webp`, `<id>-mobile.webp`) – a nyitókép bemutatója és a nézegető magától felveszi
-- A `styles.css` és a `script.js` hivatkozásában verziószám van (most `?v=8`): módosítás után növeld, hogy a telefonok biztosan
+- A `styles.css` és a `script.js` hivatkozásában verziószám van (most `?v=9`): módosítás után növeld, hogy a telefonok biztosan
   az új változatot töltsék le
 
 ## Referencia-képek frissítése
